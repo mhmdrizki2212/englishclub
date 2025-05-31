@@ -467,49 +467,79 @@ https://templatemo.com/tm-587-tiya-golf-club
     background-color: rgb(61 64 91);
   }
   
-  .navbar {
-    background: var(--secondary-color);    
-    z-index: 99;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-  
-  .navbar-brand,
-  .navbar-brand:hover {
-    font-size: var(--h4-font-size);
-    font-weight: var(--font-weight-bold);
-    display: block;
-    color: var(--dark-color);
-    max-width: 48px;
-  }
-  
-  .navbar .navbar-brand,
-  .navbar .navbar-brand:hover {
-    color: var(--white-color);
-  }
-  
-  .navbar .navbar-brand-image {
-    filter: brightness(0) invert(1);
-  }
-  
-  .navbar-brand-image {
-    width: 48px;
-    height: 48px;
-  }
-  
-  .navbar-brand-text {
-    line-height: normal;
-    margin-left: 10px;
-    position: relative;
-    bottom: 5px;
-  }
-  
-  .navbar-brand-text small {
-    display: block;
-    font-size: 10px;
-    line-height: 1;
-    text-transform: uppercase;
-  }
+  /* Navbar background dan teks */
+.navbar {
+  background-color: #ffffff !important; /* putih */
+  position: relative;
+  z-index: 10;
+}
+
+.navbar .nav-link {
+  color: #2c2f4c !important; /* navy */
+  font-weight: 600;
+}
+
+.navbar .nav-link:hover {
+  color: #ffcc00 !important;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+  color: #2c2f4c;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #ff9900;
+}
+
+/* Navbar brand dan logo */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: none; /* hapus batasan max-width */
+  color: #2c2f4c !important; /* navy */
+  font-size: var(--h4-font-size);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #2c2f4c !important;
+}
+
+/* Hilangkan filter negatif agar logo tampil normal */
+.navbar-brand {
+  display: flex;
+  align-items: center;  /* Vertikal center alignment */
+  text-decoration: none; /* Hilangkan garis bawah link */
+}
+
+.navbar-brand-image {
+  width: 90px !important;
+  height: auto !important;
+  object-fit: contain;
+  filter: none !important;
+  display: block;
+}
+
+.navbar-brand-text {
+  margin-left: 12px;
+  color: #2c2f4c !important;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.navbar-brand-text small {
+  display: block;
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #2c2f4c !important;
+  font-weight: 400;
+  margin-top: 1px;
+}
+
   
   .navbar-expand-lg .navbar-nav .nav-link {
     border-radius: var(--border-radius-large);
@@ -669,7 +699,6 @@ https://templatemo.com/tm-587-tiya-golf-club
     HERO        
   -----------------------------------------*/
   .hero-section {
-    background-image: url('../images/anna-rosar-ZxFyVBHMK-c-unsplash.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -679,6 +708,8 @@ https://templatemo.com/tm-587-tiya-golf-club
     height: 100vh;
     min-height: 670px;
     margin-bottom: -90px;
+    background-image: url('/images/background.jpg');
+    z-index: 1;
   }
   
   .hero-50 {

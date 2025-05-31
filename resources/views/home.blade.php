@@ -35,13 +35,13 @@
 
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="Tiya Golf Club">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="navbar-brand-image" />
                     <span class="navbar-brand-text">
-                        English Club
-                        <small>Jambi University</small>
+                      English Club
+                      <small>Jambi University</small>
                     </span>
-                </a>
+                  </a>                  
 
                 <div class="d-lg-none ms-auto me-3">
                     <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="#offcanvasExample"
@@ -437,65 +437,6 @@
             </div>
         </section>
 
-
-
-        <section class="contact-section section-padding" id="section_5">
-            <div class="container">
-                <div class="row justify-content-center text-center">
-                    <div class="col-lg-8">
-                        <h2 class="mb-4 pb-2">Contact English Club</h2>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center text-center">
-                    <div class="col-lg-3 col-md-6 col-12 mb-4">
-                        <div class="member-block">
-                            <div class="member-block-image-wrap">
-                                <img src="images/members/portrait-young-handsome-businessman-wearing-suit-standing-with-crossed-arms-with-isolated-studio-white-background.jpg"
-                                    class="member-block-image img-fluid" alt="">
-
-                                <ul class="social-icon">
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-twitter"></a>
-                                    </li>
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-whatsapp"></a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="member-block-info d-flex align-items-center justify-content-between">
-                                <h4>Michael</h4>
-                                <p class="ms-auto">Founder</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-12 mb-4">
-                        <div class="member-block">
-                            <div class="member-block-image-wrap">
-                                <img src="images/members/successful-asian-lady-boss-red-blazer-holding-clipboard-with-documens-pen-working-looking-happy-white-background.jpg"
-                                    class="member-block-image img-fluid" alt="">
-
-                                <ul class="social-icon">
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-linkedin"></a>
-                                    </li>
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-twitter"></a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="member-block-info d-flex align-items-center justify-content-between">
-                                <h4>Sandy</h4>
-                                <p class="ms-auto">Co-Founder</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
     </main>
 
