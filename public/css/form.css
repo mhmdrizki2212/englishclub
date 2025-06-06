@@ -1,0 +1,73 @@
+/* Form container - Menampilkan form di tengah */
+form.custom-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Full viewport height */
+    background-color: #f4f4f9;  /* Light background for contrast */
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;  /* Membuat sudut sedikit melengkung */
+    border: 2px solid #007bff; /* Border tepi dengan warna biru */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 20px; /* Menjaga jarak dari atas halaman */
+}
+
+.form-container h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-container .form-label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-container .form-control {
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    width: 100%;  /* Pastikan input mengisi seluruh lebar form */
+    box-sizing: border-box; /* Memastikan padding tidak merubah lebar */
+}
+
+.form-container .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-container .btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.form-container .btn-submit:hover {
+    background-color: #0056b3;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsif untuk perangkat kecil */
+@media (max-width: 768px) {
+    .form-container {
+        width: 80%;
+        padding: 30px;
+    }
+}
