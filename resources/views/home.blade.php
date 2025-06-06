@@ -8,7 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>English Club</title>
+    <title>English Club Universitas Jambi</title>
+    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" />
+
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,11 +58,11 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            <a class="nav-link click-scroll" href="#home">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="about.html">About</a>
+                            <a class="nav-link click-scroll" href="{{ route('about') }}">About</a>
                         </li>
 
                         <li class="nav-item">
@@ -68,7 +70,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="news.html">News</a>
+                            <a class="nav-link click-scroll" href="{{ route('news') }}">News</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -154,7 +156,9 @@
         </div>
 
 
-        <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+        <section class="hero-section d-flex justify-content-center align-items-center" id="home"     
+        style="background-image: url('{{ asset('images/background.jpg') }}'); background-size: cover; background-position: center;">
+            >
 
             <div class="section-overlay"></div>
 
@@ -179,9 +183,8 @@
                         </h1>
 
                         <div class="custom-btn-group">
-                            <a href="#section_2" class="btn custom-btn smoothscroll me-3">Our Story</a>
+                            <a href="{{ route('news') }}" class="btn custom-btn smoothscroll me-3">Our Story</a>
 
-                            <a href="#section_3" class="link smoothscroll">Become a member</a>
                         </div>
                     </div>
                 </div>
@@ -208,7 +211,7 @@
                             menciptakan lingkungan belajar yang suportif.
                         </p>
 
-                        <a href="about.html" class="btn rounded-pill px-4 py-2"
+                        <a href="{{ route('about') }}" class="btn rounded-pill px-4 py-2"
                             style="background-color: var(--custom-btn-bg-color); color: var(--dark-color); border: none;"
                             onmouseover="this.style.backgroundColor='var(--custom-btn-bg-hover-color)'"
                             onmouseout="this.style.backgroundColor='var(--custom-btn-bg-color)'">
@@ -275,7 +278,7 @@
 
 
 
-        <section class="section-bg-image">
+        <section class="section-bg-image" style="background-image: url('{{ asset('images/sectionbg.jpg') }}');">
             <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z"
                     stroke-width="0"></path>
@@ -295,25 +298,17 @@
                         <h2 class="mb-4 text-white">Social Media</h2>
 
                         <div class="d-flex justify-content-center gap-3 flex-wrap">
-                            <a href="#" class="d-flex align-items-center justify-content-center rounded-3 social-icon"
+                            <a href="https://youtube.com/@englishclubunja?si=WfWYOlHzrCrA1hPh" target="_blank" class="d-flex align-items-center justify-content-center rounded-3 social-icon"
                                 style="background-color: #FF0000;">
                                 <i class="bi bi-youtube text-white fs-3"></i>
                             </a>
 
-                            <a href="#" class="d-flex align-items-center justify-content-center rounded-3 social-icon"
+                            <a href="https://www.instagram.com/english.club_unja?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="d-flex align-items-center justify-content-center rounded-3 social-icon"
                                 style="background-color: #8EC6E6;">
                                 <i class="bi bi-instagram text-white fs-3"></i>
                             </a>
 
-                            <a href="#" class="d-flex align-items-center justify-content-center rounded-3 social-icon"
-                                style="background-color: #25D366;">
-                                <i class="bi bi-whatsapp text-white fs-3"></i>
-                            </a>
 
-                            <a href="#" class="d-flex align-items-center justify-content-center rounded-3 social-icon"
-                                style="background-color: #0A66C2;">
-                                <i class="bi bi-linkedin text-white fs-3"></i>
-                            </a>
                         </div>
                     </div>
                 </div>

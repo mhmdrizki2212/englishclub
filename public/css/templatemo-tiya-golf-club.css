@@ -708,7 +708,6 @@ https://templatemo.com/tm-587-tiya-golf-club
     height: 100vh;
     min-height: 670px;
     margin-bottom: -90px;
-    background-image: url('/images/background.jpg');
     z-index: 1;
   }
   
@@ -752,7 +751,6 @@ https://templatemo.com/tm-587-tiya-golf-club
     BACKGROUND IMAGE SECTION        
   -----------------------------------------*/
   .section-bg-image {
-    background-image: url('../images/WhatsApp\ Image\ 2025-04-22\ at\ 15.06.23_0bac89a4.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
