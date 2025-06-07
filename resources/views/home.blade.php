@@ -66,7 +66,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="course.html">Course</a>
+                            <a class="nav-link click-scroll" href="/placement">Placement</a>
                         </li>
 
                         <li class="nav-item">

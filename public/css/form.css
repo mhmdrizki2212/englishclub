@@ -1,0 +1,92 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Navbar brand */
+.navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .navbar-brand-image {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Form container styling */
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin: 50px auto;  /* Centering the form */
+}
+
+/* Form title */
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Form field styling */
+.form-control {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem;
+}
+
+/* Form label styling */
+.form-label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Submit button styling */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Error messages */
+.text-danger {
+    color: red;
+    font-size: 0.875rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+    }
+    .navbar .navbar-brand-text small {
+        font-size: 0.75rem;
+    }
+}
