@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>English Club</title>
-
+    <title> Test Your English Skils!!</title>
+    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" />
     <!-- CSS FILES -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
@@ -38,13 +38,13 @@
                         <a class="nav-link click-scroll" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="about.html">About</a>
+                        <a class="nav-link click-scroll" href="{{ route('about') }}">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="/placement">Placement</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="news.html">News</a>
+                        <a class="nav-link click-scroll" href="{{ route('news') }}">News</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
@@ -82,10 +82,10 @@
                         <input type="text" class="form-control" id="nim" name="nim" required placeholder="Masukkan NIM">
                     </div>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="score" class="form-label">Skor <span class="text-danger">*</span></label>
                         <input type="number" class="form-control" id="score" name="score" min="0" required placeholder="Masukkan Skor">
-                    </div>
+                    </div> --}}
 
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

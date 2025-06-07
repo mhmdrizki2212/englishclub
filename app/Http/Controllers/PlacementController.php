@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\TestTaker;
 use Illuminate\Http\Request;
 
 class PlacementController extends Controller

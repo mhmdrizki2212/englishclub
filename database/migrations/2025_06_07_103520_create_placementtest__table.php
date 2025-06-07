@@ -10,18 +10,18 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-        $table->id();
-        $table->string('email')->unique();
-        $table->string('nim')->unique();
-        $table->string('name');
-        $table->integer('score')->nullable();
-        $table->timestamps();
-    });
+        Schema::create('test_takers', function(Blueprint $table){
+            $table->id();
+            $table->string('email')->unique();
+            $table->string('nim')->unique();
+            $table->string('name');
+            $table->integer('score')->nullable();
+            $table->timestamps();
+        });        
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('users'); // Sesuaikan dengan nama tabel yang digunakan
+        Schema::dropIfExists('test_takers'); // Sesuaikan dengan nama tabel yang digunakan
     }
 };
