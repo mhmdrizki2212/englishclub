@@ -82,11 +82,6 @@
                         <input type="text" class="form-control" id="nim" name="nim" required placeholder="Masukkan NIM">
                     </div>
 
-                    {{-- <div class="mb-3">
-                        <label for="score" class="form-label">Skor <span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="score" name="score" min="0" required placeholder="Masukkan Skor">
-                    </div> --}}
-
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
