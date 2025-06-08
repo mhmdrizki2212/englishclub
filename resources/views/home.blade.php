@@ -23,7 +23,7 @@
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
         <link href="{{ asset('css/templatemo-tiya-golf-club.css') }}" rel="stylesheet">
-        
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -43,7 +43,7 @@
                       English Club
                       <small>Jambi University</small>
                     </span>
-                  </a>                  
+                  </a>
 
                 <div class="d-lg-none ms-auto me-3">
                     <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="#offcanvasExample"
@@ -78,9 +78,15 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>
 
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                <li><a class="dropdown-item" href="event-listing.html">Event Listing</a></li>
+                                <li><a class="dropdown-item" href="pioneer_inti.blade.php">INTI</a></li>
 
-                                <li><a class="dropdown-item" href="event-detail.html">Event Detail</a></li>
+                                <li><a class="dropdown-item" href="event-detail.html"> ACADEMIC DEPARTMENT</a></li>
+
+                                <li><a class="dropdown-item" href="pioneer_inti.blade.php">ART DEPARTMENT</a></li>
+
+                                <li><a class="dropdown-item" href="event-detail.html">MEDIA, INFORMATION AND COMMUNICATIONS</a></li>
+
+                                <li><a class="dropdown-item" href="pioneer_inti.blade.php">PUBLIC RELATIONS</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -156,7 +162,7 @@
         </div>
 
 
-        <section class="hero-section d-flex justify-content-center align-items-center" id="home"     
+        <section class="hero-section d-flex justify-content-center align-items-center" id="home"
         style="background-image: url('{{ asset('images/background.jpg') }}'); background-size: cover; background-position: center;">
             >
 
