@@ -5,18 +5,22 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\BiodataEntryController;
 use App\Http\Controllers\Back\DashboardController;
+use App\Http\Controllers\PlacementController;
+use App\Http\Controllers\DepartmentController;
+
 
 Route::get('/', function () {
     return view('home');
 });
 
-use App\Http\Controllers\DepartmentController;
 
 Route::get('/core-comittee', [DepartmentController::class, 'showCoreComittee']);
 Route::get('/academic-department', [DepartmentController::class, 'showAcademicDepartment']);
 Route::get('/art-department', [DepartmentController::class, 'showArtDepartment']);
 Route::get('/media-information', [DepartmentController::class, 'showMediaInformation']);
 Route::get('/public-relations', [DepartmentController::class, 'showPublicRelations']);
+Route::get('/placement', [PlacementController::class, 'index'])->name('placement');
+
 
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');

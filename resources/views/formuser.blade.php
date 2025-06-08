@@ -41,7 +41,7 @@
                         <a class="nav-link click-scroll" href="{{ route('about') }}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="/placement">Placement</a>
+                        <a class="nav-link click-scroll" href="{{ url('/placement') }}">Placement</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="{{ route('news') }}">News</a>
@@ -49,10 +49,13 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>
-                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                            <li><a class="dropdown-item" href="event-listing.html">Event Listing</a></li>
-                            <li><a class="dropdown-item" href="event-detail.html">Event Detail</a></li>
-                        </ul>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="{{ url('/core-comittee') }}">Core Comittee</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/academic-department') }}">Academic Department</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/art-department') }}">Art Department</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/media-information') }}">Media, Information and Communications</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/public-relations') }}">Public Relations</a></li>
+                            </ul>
                     </li>
                 </ul>
             </div>
