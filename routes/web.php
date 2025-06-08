@@ -10,6 +10,15 @@ Route::get('/', function () {
     return view('home');
 });
 
+use App\Http\Controllers\DepartmentController;
+
+Route::get('/core-comittee', [DepartmentController::class, 'showCoreComittee']);
+Route::get('/academic-department', [DepartmentController::class, 'showAcademicDepartment']);
+Route::get('/art-department', [DepartmentController::class, 'showArtDepartment']);
+Route::get('/media-information', [DepartmentController::class, 'showMediaInformation']);
+Route::get('/public-relations', [DepartmentController::class, 'showPublicRelations']);
+
+
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // Route for showing the placement form
