@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User; // Pastikan model User sudah di-import
+use App\Models\TestTaker; // Pastikan model TestTaker sudah di-import
 use Illuminate\Http\Request;
 
 class PlacementController extends Controller
@@ -18,18 +18,18 @@ class PlacementController extends Controller
     {
         // Validasi data yang dimasukkan (email, name, nim, dan score)
         $request->validate([
-            'email' => 'required|email|unique:users,email',  // Validasi email unik
+            'email' => 'required|email|unique:test_takers,email',  // Validasi email unik
             'name' => 'required|string',  // Validasi nama wajib diisi
-            'nim' => 'required|string|unique:users,nim',  // Validasi NIM unik
+            'nim' => 'required|string|unique:test_takers,nim',  // Validasi NIM unik
         ]);
 
-        // Membuat user baru tanpa password
-        $user = new User();
-        $user->email = $request->email;  // Menyimpan email
-        $user->name = $request->name;    // Menyimpan nama
-        $user->nim = $request->nim;      // Menyimpan NIM
-        $user->score = $request->score;  // Menyimpan skor
-        $user->save();  // Menyimpan ke dalam database
+        // Membuat test_taker baru
+        $testTaker = new TestTaker(); // Ganti User menjadi TestTaker
+        $testTaker->email = $request->email;  // Menyimpan email
+        $testTaker->name = $request->name;    // Menyimpan nama
+        $testTaker->nim = $request->nim;      // Menyimpan NIM
+        $testTaker->score = $request->score;  // Menyimpan skor
+        $testTaker->save();  // Menyimpan ke dalam database
 
         // Mengarahkan ke halaman placement setelah data disimpan
         return redirect()->route('placement');
