@@ -5,6 +5,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\BiodataEntryController;
 use App\Http\Controllers\Back\DashboardController;
+use App\Http\Controllers\Back\NewssController;
 use App\Http\Controllers\PlacementController;
 use App\Http\Controllers\DepartmentController;
 
@@ -24,6 +25,7 @@ Route::get('/placement', [PlacementController::class, 'index'])->name('placement
 
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('newss', [NewssController::class, 'index'])->name('newss');
 
 // Route for showing the placement form
 Route::get('/placement', function () {

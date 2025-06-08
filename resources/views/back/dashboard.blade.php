@@ -61,7 +61,7 @@
     <h4 class="text-center mb-4"style ="padding : 5px;">English Club Universitas Jambi</h4>
     <nav class="nav flex-column">
       <a class="nav-link active" href="/dashboard">Dashboard</a>
-      <a class="nav-link" href="#">News</a>
+      <a class="nav-link" href="{{ url('/newss') }}">News</a>
       <a class="nav-link" href="#">Option Placement Test Quiz</a>
       <a class="nav-link" href="#">Quiz History</a>
       <hr class="text-white">
