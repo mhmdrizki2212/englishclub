@@ -33,4 +33,4 @@ Route::get('/placement', function () {
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/news', [NewsController::class, 'index'])->name('news');
-Route::post('/user/store', [BiodataEntryController::class, 'store'])->name('user.store');
+Route::post('/user/store', [PlacementController::class, 'store'])->name('user.store');
