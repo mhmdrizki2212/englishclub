@@ -78,15 +78,11 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>
 
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                <li><a class="dropdown-item" href="pioneer_inti.blade.php">INTI</a></li>
-
-                                <li><a class="dropdown-item" href="event-detail.html"> ACADEMIC DEPARTMENT</a></li>
-
-                                <li><a class="dropdown-item" href="pioneer_inti.blade.php">ART DEPARTMENT</a></li>
-
-                                <li><a class="dropdown-item" href="event-detail.html">MEDIA, INFORMATION AND COMMUNICATIONS</a></li>
-
-                                <li><a class="dropdown-item" href="pioneer_inti.blade.php">PUBLIC RELATIONS</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/core-comittee') }}">Core Comitee</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/academic-department') }}">Academic Department</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/art-department') }}">Art Department</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/media-information') }}">Media, Information and Communications</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/public-relations') }}">Public Relations</a></li>
                             </ul>
                         </li>
                     </ul>

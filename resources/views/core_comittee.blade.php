@@ -142,126 +142,83 @@
             </svg>
         </div>
 
-        <section class="hero-section d-flex justify-content-center align-items-center position-relative" id="home"
-    style="background-image: url('{{ asset('images/background.jpg') }}'); background-size: cover; background-position: center; min-height: 100vh;">
-    <div class="section-overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.4);"></div>
-
-    </section>
-
-<section class="about-section section-padding position-relative" id="section_about" style="margin-top: -800px; z-index: 3;">
-    <div class="container">
-        <div class="card shadow-lg p-4 p-md-5 border-0 rounded-4">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12 mb-4"> <h2 class="mb-3 fw-bold text-dark text-center">"English Club"</h2>
-                        <p class="mb-4">
-                            English Club adalah salah satu organisasi mahasiswa di Universitas Jambi yang berfokus pada
-                            pengembangan kemampuan bahasa Inggris melalui kegiatan edukatif, kompetitif, dan
-                            kolaboratif. Kami aktif mengadakan pelatihan, lomba, hingga pengabdian masyarakat demi
-                            menciptakan lingkungan belajar yang suportif.
-                        </p>
-                    </div>
-
-                    <div class="row mt-4"> <div class="col-md-6 col-12 mb-4 mb-md-0">
-                        <h5 class="fw-bold text-dark text-center mb-3">VISI</h5>
-                        <p class="text-center">
-                            Mengembangkan kemampuan berbahasa Inggris yang unggul, serta membentuk mahasiswa yang berintegritas, kreatif, dan berdaya saing global.
-                        </p>
-                    </div>
-
-                    <div class="col-md-6 col-12">
-                        <h5 class="fw-bold text-dark text-center mb-3">MISI</h5>
-                        <ul class="list-unstyled"> <li class="d-flex align-items-start mb-2">
-                                <i class="bi bi-check-circle-fill me-2" style="color: var(--primary-color);"></i>
-                                <span>Menyelenggarakan pelatihan dan workshop rutin untuk meningkatkan keterampilan berbahasa Inggris.</span>
-                            </li>
-                            <li class="d-flex align-items-start mb-2">
-                                <i class="bi bi-check-circle-fill me-2" style="color: var(--primary-color);"></i>
-                                <span>Mengadakan kompetisi internal dan eksternal untuk mengasah kemampuan anggota.</span>
-                            </li>
-                            <li class="d-flex align-items-start mb-2">
-                                <i class="bi bi-check-circle-fill me-2" style="color: var(--primary-color);"></i>
-                                <span>Membangun lingkungan belajar yang inklusif dan suportif.</span>
-                            </li>
-                            <li class="d-flex align-items-start mb-2">
-                                <i class="bi bi-check-circle-fill me-2" style="color: var(--primary-color);"></i>
-                                <span>Menginisiasi program pengabdian masyarakat yang relevan dengan bahasa Inggris.</span>
-                            </li>
-                            <li class="d-flex align-items-start mb-2">
-                                <i class="bi bi-check-circle-fill me-2" style="color: var(--primary-color);"></i>
-                                <span>Membangun kolaborasi dengan organisasi dan lembaga lain.</span>
-                            </li>
-                        </ul>
+        <section class="hero-section d-flex justify-content-center align-items-center position-relative" id="home"style="background-image: url('{{ asset('images/background.jpg') }}'); background-size: cover; background-position: center; min-height: 100vh;">
+            <div class="section-overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.4);"></div>
+            <div class="container position-relative" style="z-index: 2; padding-bottom: 100px;"> <div class="row">
+                    <div class="col-12 text-center" style="margin-top: -250px;"> <h2 class="text-white mb-0">Our Pioneers Structure</h2>
+                        <small class="text-white-50">English Club Jambi University</small>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="col-12 mb-4 mt-5"> <h3 class="mb-3 fw-bold text-dark text-center">TUJUAN</h3>
-                    <div class="col-12"> <div class="row g-4">
-                            <div class="col-sm-6">
-                                <div class="d-flex">
-                                    <i class="bi bi-people-fill fs-1 me-3" style="color: var(--primary-color);"></i>
-                                    <div>
-                                        <h5 class="fw-bold mb-1" style="color: var(--secondary-color);">Membangun Jaringan</h5>
-                                        <p class="mb-0" style="color: var(--p-color);">Kolaborasi antar anggota & organisasi lain.</p>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-sm-6">
-                                <div class="d-flex">
-                                    <i class="bi bi-box-seam fs-1 me-3" style="color: var(--primary-color);"></i>
-                                    <div>
-                                        <h5 class="fw-bold mb-1" style="color: var(--secondary-color);">Pengembangan Diri</h5>
-                                        <p class="mb-0" style="color: var(--p-color);">Meningkatkan profesionalisme & kepercayaan diri.</p>
-                                    </div>
-                                </div>
-                            </div>
+        <section class="structure-section section-padding" id="section_structure" style="margin-top: -650px; z-index: 3;">
+            <div class="container">
+                <div class="structure-main-card">
+                    <div class="row">
+                        <div class="col-12 text-center mb-5">
+                            <h3 class="fw-bold text-dark">Struktur Kepengurusan English Club</h3>
+                        </div>
 
-                            <div class="col-sm-6">
-                                <div class="d-flex">
-                                    <i class="bi bi-image fs-1 me-3" style="color: var(--primary-color);"></i>
-                                    <div>
-                                        <h5 class="fw-bold mb-1" style="color: var(--secondary-color);">Berbagi Pengetahuan</h5>
-                                        <p class="mb-0" style="color: var(--p-color);">Sharing ilmu & pengalaman sesama anggota.</p>
-                                    </div>
-                                </div>
+                        <div class="col-lg-6 col-md-6 col-12 mb-4">
+                            <div class="structure-card-profile">
+                                <img src="{{ asset('images/structure/chairman.jpg') }}" class="structure-profile-image"
+                                    alt="Profile of Chair Person">
+                                <h4 class="structure-name">Safina Calzoum</h4>
+                                <p class="structure-position">Ketua Umum</p>
                             </div>
+                        </div>
 
-                            <div class="col-sm-6">
-                                <div class="d-flex">
-                                    <i class="bi bi-shield-check fs-1 me-3" style="color: var(--primary-color);"></i>
-                                    <div>
-                                        <h5 class="fw-bold mb-1" style="color: var(--secondary-color);">Proyek Bersama</h5>
-                                        <p class="mb-0" style="color: var(--p-color);">Mengerjakan kegiatan dalam tim.</p>
-                                    </div>
-                                </div>
+                        <div class="col-lg-6 col-md-6 col-12 mb-4">
+                            <div class="structure-card-profile">
+                                <img src="{{ asset('images/structure/vice_chairman.jpg') }}"
+                                    class="structure-profile-image" alt="Profile of Vice Chair Person">
+                                <h4 class="structure-name">Mukhtada Billah Nasution</h4>
+                                <p class="structure-position">Wakil Ketua Umum</p>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex">
-                                    <i class="bi bi-shield-check fs-1 me-3" style="color: var(--primary-color);"></i>
-                                    <div>
-                                        <h5 class="fw-bold mb-1" style="color: var(--secondary-color);">Proyek Bersama</h5>
-                                        <p class="mb-0" style="color: var(--p-color);">Mengerjakan kegiatan dalam tim.</p>
-                                    </div>
-                                </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-12 mb-4">
+                            <div class="structure-card-profile">
+                                <img src="{{ asset('images/structure/head_public_speaking.jpg') }}"
+                                    class="structure-profile-image" alt="Profile of Head of Public Speaking Division">
+                                <h4 class="structure-name">Nelam Zahra</h4>
+                                <p class="structure-position">Sekretaris 1</p>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex">
-                                    <i class="bi bi-shield-check fs-1 me-3" style="color: var(--primary-color);"></i>
-                                    <div>
-                                        <h5 class="fw-bold mb-1" style="color: var(--secondary-color);">Proyek Bersama</h5>
-                                        <p class="mb-0" style="color: var(--p-color);">Mengerjakan kegiatan dalam tim.</p>
-                                    </div>
-                                </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-12 mb-4">
+                            <div class="structure-card-profile">
+                                <img src="{{ asset('images/structure/vice_head_public_speaking.jpg') }}"
+                                    class="structure-profile-image" alt="Profile of Vice Head of Public Speaking Division">
+                                <h4 class="structure-name">Dinda Mutiara</h4>
+                                <p class="structure-position">Sekretaris 2</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-12 mb-4">
+                            <div class="structure-card-profile">
+                                <img src="{{ asset('images/structure/head_public_speaking.jpg') }}"
+                                    class="structure-profile-image" alt="Profile of Head of Public Speaking Division">
+                                <h4 class="structure-name">Ammar As'ad</h4>
+                                <p class="structure-position">Bendahara 1</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-12 mb-4">
+                            <div class="structure-card-profile">
+                                <img src="{{ asset('images/structure/vice_head_public_speaking.jpg') }}"
+                                    class="structure-profile-image" alt="Profile of Vice Head of Public Speaking Division">
+                                <h4 class="structure-name">Astrid Johana Las Maria </h4>
+                                <p class="structure-position">Bendahara 2</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
+
     </main>
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -272,24 +229,15 @@
     <script src="{{ asset('js/magnific-popup-options.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     <script>
-        // Simple text rotation for the hero section
+        // Script to ensure active nav link for 'Structure'
         document.addEventListener('DOMContentLoaded', function() {
-            var words = document.querySelectorAll('.cd-words-wrapper b');
-            var currentIndex = 0;
-
-            function rotateWords() {
-                words[currentIndex].classList.remove('is-visible');
-                currentIndex = (currentIndex + 1) % words.length;
-                words[currentIndex].classList.add('is-visible');
+            var dropdownToggle = document.querySelector('.navbar-nav .nav-item.dropdown .nav-link');
+            if (dropdownToggle && dropdownToggle.textContent.includes('Structure')) {
+                dropdownToggle.classList.add('active');
             }
-
-            // Initial visibility
-            if (words.length > 0) {
-                words[0].classList.add('is-visible');
-            }
-
-            setInterval(rotateWords, 3000); // Change word every 3 seconds
         });
     </script>
 
 </body>
+
+</html>

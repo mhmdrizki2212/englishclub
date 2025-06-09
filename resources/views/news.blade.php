@@ -49,7 +49,11 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-auto">
                         <li class="nav-item">
+<<<<<<< HEAD
                             <a class="nav-link click-scroll" href="{{ url('/') }}#home">Home</a>
+=======
+                            <a class="nav-link click-scroll" href="{{ url('/') }}">Home</a>
+>>>>>>> 54843dc782e072ceb30f39a2cda1a4c5cca35b08
                         </li>
 
                         <li class="nav-item">
@@ -69,15 +73,11 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>
 
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                <li><a class="dropdown-item" href="pioneer_inti.blade.php">INTI</a></li>
-
-                                <li><a class="dropdown-item" href="event-detail.html"> ACADEMIC DEPARTMENT</a></li>
-
-                                <li><a class="dropdown-item" href="pioneer_inti.blade.php">ART DEPARTMENT</a></li>
-
-                                <li><a class="dropdown-item" href="event-detail.html">MEDIA, INFORMATION AND COMMUNICATIONS</a></li>
-
-                                <li><a class="dropdown-item" href="pioneer_inti.blade.php">PUBLIC RELATIONS</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/core-comittee') }}">Core Comittee</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/academic-department') }}">Academic Department</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/art-department') }}">Art Department</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/media-information') }}">Media, Information and Communications</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/public-relations') }}">Public Relations</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -340,4 +340,8 @@
 
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 54843dc782e072ceb30f39a2cda1a4c5cca35b08
