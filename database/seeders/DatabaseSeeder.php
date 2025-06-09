@@ -19,5 +19,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        // Panggil seeder soal tes yang baru dibuat
+        $this->call(PlacementTestSeeder::class);
     }
 }

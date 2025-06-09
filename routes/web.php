@@ -30,4 +30,10 @@ Route::post('/user/store', [PlacementController::class, 'store'])->name('user.st
 
 // 3. Rute untuk halaman kuis (tujuan akhir setelah submit)
 Route::get('/placement/quiz/{testTaker}', [PlacementController::class, 'startQuiz'])->name('placement.quiz');
+
+// 4. Rute untuk submit jawaban kuis
+Route::post('/placement/submit/{testTaker}', [PlacementController::class, 'submitQuiz'])->name('placement.submit');
+
+// 5. Rute untuk menampilkan halaman hasil
+Route::get('/placement/result/{testTaker}', [PlacementController::class, 'showResult'])->name('placement.result');
 // ==========================================
