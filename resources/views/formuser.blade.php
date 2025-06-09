@@ -20,8 +20,8 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" class="navbar-brand-image" />
                     <span class="navbar-brand-text">
-                      English Club
-                      <small>Jambi University</small>
+                        English Club
+                        <small>Jambi University</small>
                     </span>
                 </a>
 
@@ -87,7 +87,7 @@
                         <div class="mb-4">
                             <label class="form-label mb-2" for="member-login-password">Password</label>
                             <input type="password" name="member-login-password" id="member-login-password"
-                                pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Password" required="">
+                                pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Password" required=""/>
                         </div>
                         <div class="form-check mb-4">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -117,29 +117,48 @@
             </svg>
         </div>
 
+        <!-- Form untuk Biodata -->
         <div class="container mt-5">
             <div class="form-container p-5 shadow-sm rounded">
                 <h3>Biodata Diri</h3>
+
+                <!-- Pesan kesalahan validasi -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <!-- Formulir -->
                 <form id="biodataForm" action="{{ route('user.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" id="email" name="email" required placeholder="Masukkan Alamat Email">
+                        <input type="email" class="form-control" id="email" name="email" required
+                            placeholder="Masukkan Alamat Email">
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" required placeholder="Masukkan Nama Lengkap">
+                        <input type="text" class="form-control" id="name" name="name" required
+                            placeholder="Masukkan Nama Lengkap">
                     </div>
                     <div class="mb-3">
                         <label for="nim" class="form-label">NIM <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="nim" name="nim" required placeholder="Masukkan NIM">
+                        <input type="text" class="form-control" id="nim" name="nim" required
+                            placeholder="Masukkan NIM">
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Submit</button>
                 </form>
             </div>
         </div>
 
-        <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <!-- Modal Konfirmasi -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header border-0">
@@ -150,10 +169,14 @@
                         <p>Anda akan memulai Placement Test. Mohon perhatikan petunjuk di bawah ini sebelum memulai.</p>
                         <div style="text-align: left; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
                             <ul style="padding-left: 0; list-style: none;">
-                                <li class="d-flex align-items-center mb-2"><i class="bi bi-card-checklist me-2"></i> Kuis terdiri dari 50 soal.</li>
-                                <li class="d-flex align-items-center mb-2"><i class="bi bi-clock-fill me-2"></i> Waktu pengerjaan 60 menit.</li>
-                                <li class="d-flex align-items-center mb-2"><i class="bi bi-shield-check me-2"></i> Kerjakan dengan jujur dan mandiri.</li>
-                                <li class="d-flex align-items-center"><i class="bi bi-exclamation-triangle-fill me-2"></i> Tes hanya dapat dikerjakan satu kali.</li>
+                                <li class="d-flex align-items-center mb-2"><i class="bi bi-card-checklist me-2"></i>
+                                    Kuis terdiri dari 50 soal.</li>
+                                <li class="d-flex align-items-center mb-2"><i class="bi bi-clock-fill me-2"></i> Waktu
+                                    pengerjaan 60 menit.</li>
+                                <li class="d-flex align-items-center mb-2"><i class="bi bi-shield-check me-2"></i>
+                                    Kerjakan dengan jujur dan mandiri.</li>
+                                <li class="d-flex align-items-center"><i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                    Tes hanya dapat dikerjakan satu kali.</li>
                             </ul>
                         </div>
                     </div>
@@ -167,25 +190,31 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('biodataForm');
-            const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-            const startQuizBtn = document.getElementById('startQuizBtn');
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('biodataForm');
+        const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+        const startQuizBtn = document.getElementById('startQuizBtn');
 
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-                if (form.checkValidity()) {
-                    confirmationModal.show();
-                } else {
-                    form.reportValidity();
-                }
-            });
-
-            startQuizBtn.addEventListener('click', function () {
-                form.submit();
-            });
+        // Menambahkan event listener ke form
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Mencegah form disubmit langsung
+            if (form.checkValidity()) {
+                // Menampilkan modal konfirmasi
+                confirmationModal.show();
+            } else {
+                // Menampilkan pesan error validasi jika form tidak valid
+                form.reportValidity();
+            }
         });
-    </script>
+
+        // Menambahkan event listener ke tombol konfirmasi
+        startQuizBtn.addEventListener('click', function () {
+            form.submit(); // Submit form jika tombol diklik
+        });
+    });
+</script>
+
 </body>
+
 </html>
