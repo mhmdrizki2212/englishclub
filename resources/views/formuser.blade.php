@@ -120,7 +120,7 @@
         <!-- Form untuk Biodata -->
         <div class="container mt-5">
             <div class="form-container p-5 shadow-sm rounded">
-                <h3>Biodata Diri</h3>
+                <h3>Input Your Biodata First!</h3>
 
                 <!-- Pesan kesalahan validasi -->
                 @if ($errors->any())

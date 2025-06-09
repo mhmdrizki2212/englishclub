@@ -9,10 +9,16 @@ use Illuminate\Http\Request;
 
 class PlacementController extends Controller
 {
-    // ... (metode index dan store tetap sama)
+    // Show the landing page before the biodata form
+    public function showLandingPage()
+    {
+        return view('placement_landing');  // This will render the landing page view
+    }
+
+    // Show the biodata form
     public function index()
     {
-        return view('formuser');
+        return view('formuser'); // This will show the biodata form
     }
 
     public function store(Request $request)
@@ -34,9 +40,6 @@ class PlacementController extends Controller
         return view('placement_quiz', compact('testTaker', 'questions'));
     }
 
-    /**
-     * Memproses jawaban kuis, menghitung skor total dan per-tag.
-     */
     public function submitQuiz(Request $request, TestTaker $testTaker)
     {
         $answers = $request->input('answers', []);
@@ -49,43 +52,37 @@ class PlacementController extends Controller
 
         foreach ($questions as $question) {
             $tag = $question->tags;
-            // Inisialisasi jika tag belum ada
             if (!isset($tagPerformance[$tag])) {
                 $tagPerformance[$tag] = ['correct' => 0, 'total' => 0];
             }
             $tagPerformance[$tag]['total']++;
 
-            // Cek jawaban
             if (isset($answers[$question->id]) && $answers[$question->id] == $question->jawaban) {
                 $totalScore++;
                 $tagPerformance[$tag]['correct']++;
             }
         }
 
-        // Simpan skor total ke database
+        // Save score to database
         $testTaker->score = $totalScore;
         $testTaker->save();
 
-        // Simpan ke history
+        // Save to history
         History::create([
             'test_taker_id' => $testTaker->id,
             'name' => $testTaker->name,
             'score' => $totalScore,
         ]);
 
-        // Simpan analisis tag ke session untuk ditampilkan di halaman hasil
         session(['tagPerformance' => $tagPerformance]);
 
         return redirect()->route('placement.result', ['testTaker' => $testTaker->id]);
     }
 
-    /**
-     * Menampilkan halaman hasil/skor beserta analisisnya.
-     */
     public function showResult(TestTaker $testTaker)
     {
         $tagPerformance = session('tagPerformance', []);
-        $totalQuestions = placement_test::count(); // Ambil total soal untuk persentase
+        $totalQuestions = placement_test::count();
 
         return view('placement_result', compact('testTaker', 'tagPerformance', 'totalQuestions'));
     }

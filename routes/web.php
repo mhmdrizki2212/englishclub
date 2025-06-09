@@ -24,18 +24,22 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard'
 Route::get('newss', [NewssController::class, 'index'])->name('newss');
 
 // === KUMPULAN RUTE UNTUK PLACEMENT TEST ===
-// 1. Rute untuk menampilkan form biodata
-Route::get('/placement', [PlacementController::class, 'index'])->name('placement');
 
-// 2. Rute untuk memproses data dari form
+// Rute untuk menampilkan halaman pertama sebelum form biodata (Landing Page)
+Route::get('/placement', [PlacementController::class, 'showLandingPage'])->name('placement.landing');
+
+// Rute untuk menampilkan form biodata
+Route::get('/placement/biodata', [PlacementController::class, 'index'])->name('placement.biodata');
+
+// Rute untuk memproses data dari form biodata
 Route::post('/user/store', [PlacementController::class, 'store'])->name('user.store');
 
-// 3. Rute untuk halaman kuis (tujuan akhir setelah submit)
+// Rute untuk halaman kuis (tujuan akhir setelah submit)
 Route::get('/placement/quiz/{testTaker}', [PlacementController::class, 'startQuiz'])->name('placement.quiz');
 
-// 4. Rute untuk submit jawaban kuis
+// Rute untuk submit jawaban kuis
 Route::post('/placement/submit/{testTaker}', [PlacementController::class, 'submitQuiz'])->name('placement.submit');
 
-// 5. Rute untuk menampilkan halaman hasil
+// Rute untuk menampilkan halaman hasil
 Route::get('/placement/result/{testTaker}', [PlacementController::class, 'showResult'])->name('placement.result');
 // ==========================================
