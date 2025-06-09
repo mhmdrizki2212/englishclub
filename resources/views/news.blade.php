@@ -49,11 +49,9 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-auto">
                         <li class="nav-item">
-<<<<<<< HEAD
                             <a class="nav-link click-scroll" href="{{ url('/') }}#home">Home</a>
-=======
+
                             <a class="nav-link click-scroll" href="{{ url('/') }}">Home</a>
->>>>>>> 54843dc782e072ceb30f39a2cda1a4c5cca35b08
                         </li>
 
                         <li class="nav-item">
