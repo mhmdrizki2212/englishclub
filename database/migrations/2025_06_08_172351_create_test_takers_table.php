@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Cek jika tabel belum ada sebelum membuat
         if (!Schema::hasTable('test_takers')) {
             Schema::create('test_takers', function (Blueprint $table) {
                 $table->id();
-                $table->string('email');
-                $table->string('nim');
+                $table->string('email')->unique(); // Tambahkan unique untuk mencegah duplikat
+                $table->string('nim')->unique();   // Tambahkan unique untuk mencegah duplikat
                 $table->string('name');
-                $table->integer('score')->nullable();
+                $table->integer('score')->nullable(); // Skor bisa diisi nanti
                 $table->timestamps();
             });
         }

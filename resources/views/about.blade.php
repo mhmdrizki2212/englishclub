@@ -8,7 +8,7 @@
     <meta name="description" content="Official website of English Club Jambi University">
     <meta name="author" content="English Club Universitas Jambi">
 
-    <title>English Club Universitas Jambi</title>
+    <title>About - English Club Universitas Jambi</title>
     <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,7 +57,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="course.html">Course</a>
+                            <a class="nav-link click-scroll" href="{{ url('/placement') }}">Placement</a>
                         </li>
 
                         <li class="nav-item">
