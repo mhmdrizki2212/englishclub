@@ -6,6 +6,7 @@ use App\Models\TestTaker;
 use App\Models\placement_test;
 use App\Models\History;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PlacementController extends Controller
 {
@@ -85,5 +86,21 @@ class PlacementController extends Controller
         $totalQuestions = placement_test::count();
 
         return view('placement_result', compact('testTaker', 'tagPerformance', 'totalQuestions'));
+    }
+
+     public function downloadCertificate(TestTaker $testTaker)
+    {
+        $totalQuestions = placement_test::count();
+
+        $data = [
+            'testTaker' => $testTaker,
+            'totalQuestions' => $totalQuestions,
+        ];
+
+        // Membuat PDF dari view certificate.blade.php
+        $pdf = PDF::loadView('certificate', $data)->setPaper('a4', 'landscape');
+
+        // Mengunduh PDF dengan nama file yang unik
+        return $pdf->download('certificate-' . $testTaker->nim . '.pdf');
     }
 }

@@ -42,4 +42,7 @@ Route::post('/placement/submit/{testTaker}', [PlacementController::class, 'submi
 
 // Rute untuk menampilkan halaman hasil
 Route::get('/placement/result/{testTaker}', [PlacementController::class, 'showResult'])->name('placement.result');
+
+// Rute untuk sertifikat
+Route::get('/placement/certificate/{testTaker}/download', [PlacementController::class, 'downloadCertificate'])->name('placement.certificate.download');
 // ==========================================

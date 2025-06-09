@@ -48,6 +48,9 @@
                 </div>
 
                 <a href="{{ url('/') }}" class="btn btn-primary mt-4">Kembali ke Halaman Utama</a>
+                <a href="{{ route('placement.certificate.download', $testTaker->id) }}" class="btn btn-success mt-4">
+                    <i class="bi bi-download me-2"></i>Unduh Sertifikat
+                </a>
             </div>
             <div class="card-footer text-muted">
                 English Club - Universitas Jambi
