@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\Back\DashboardController;
+use App\Http\Controllers\Back\NewssController;
 use App\Http\Controllers\PlacementController;
 use App\Http\Controllers\DepartmentController;
 
@@ -20,6 +21,7 @@ Route::get('/art-department', [DepartmentController::class, 'showArtDepartment']
 Route::get('/media-information', [DepartmentController::class, 'showMediaInformation']);
 Route::get('/public-relations', [DepartmentController::class, 'showPublicRelations']);
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('newss', [NewssController::class, 'index'])->name('newss');
 
 // === KUMPULAN RUTE UNTUK PLACEMENT TEST ===
 // 1. Rute untuk menampilkan form biodata
