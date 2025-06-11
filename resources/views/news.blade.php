@@ -81,7 +81,7 @@
                     </ul>
 
                     <div class="d-none d-lg-block ms-lg-3">
-                        <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                        <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="https://elearning.ec.librarynew.unja.ac.id"
                             role="button" aria-controls="offcanvasExample">Member Login</a>
                     </div>
                 </div>
