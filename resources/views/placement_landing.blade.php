@@ -5,10 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Placement Test - English Club</title>
-    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" />
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/templatemo-tiya-golf-club.css') }}" rel="stylesheet">
+      <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/templatemo-tiya-golf-club.css') }}" rel="stylesheet">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
 
     <style>
@@ -68,6 +78,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>
+
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                                 <li><a class="dropdown-item" href="{{ url('/core-comittee') }}">Core Comittee</a></li>
                                 <li><a class="dropdown-item" href="{{ url('/academic-department') }}">Academic Department</a></li>
