@@ -8,6 +8,7 @@ use App\Http\Controllers\Back\NewssController;
 use App\Http\Controllers\PlacementController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\Back\QuizHistoryController; 
+use App\Http\Controllers\Back\PlacementTestController;
 
 // Home route
 Route::get('/', function () {
@@ -26,6 +27,16 @@ Route::get('/public-relations', [DepartmentController::class, 'showPublicRelatio
 // Dashboard route
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('newss', [NewssController::class, 'index'])->name('newss');
+Route::get('/placement-test', [PlacementTestController::class, 'index'])->name('placement.index');
+Route::post('/placement-test', [PlacementTestController::class, 'store'])->name('placement.store');
+Route::get('/placement-test/{id}', [PlacementTestController::class, 'show'])->name('placement.show');
+Route::get('/placement-test/{id}/edit', [PlacementTestController::class, 'edit'])->name('placement.edit');
+Route::put('/placement-test/{id}', [PlacementTestController::class, 'update'])->name('placement.update');
+Route::delete('/placement-test/{id}', [PlacementTestController::class, 'destroy'])->name('placement.destroy');
+
+
+
+
 
 // Admin routes for quiz history
 Route::get('/admin/quiz-history', [QuizHistoryController::class, 'index'])->name('admin.quiz.history');

@@ -60,8 +60,8 @@
     <nav class="nav flex-column">
       <a class="nav-link" href="/dashboard">Dashboard</a>
       <a class="nav-link" href="{{ url('/newss') }}">News</a>
-      <a class="nav-link" href="#">Option Placement Test Quiz</a>
-      <a class="nav-link active" href="#">Quiz History</a>
+      <a class="nav-link" href="{{ url('/placement-test') }}"">Option Placement Test Quiz</a>
+      <a class="nav-link active"href="{{ route('admin.quiz.history') }}" >Quiz History</a>
       <hr class="text-white">
     </nav>
   </div>
