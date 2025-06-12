@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Elegant Dashboard</title>
+ 
+  <title>Quiz Histoy Admin - English Club Universitas Jambi</title>
+  <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" />
+ 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
@@ -11,6 +14,7 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #f5f6fa;
     }
+  
     .sidebar {
       width: 260px;
       background-color: #3D405B;
@@ -19,39 +23,48 @@
       position: fixed;
       padding-top: 1rem;
     }
+  
     .sidebar .nav-link {
       color: white;
       padding: 12px 20px;
     }
+  
     .sidebar .nav-link.active,
     .sidebar .nav-link:hover {
       background-color: #F2CC8F;
     }
+  
     .main-content {
       margin-left: 260px;
       padding: 2rem;
+      max-width: calc(100vw - 260px);
+      overflow-x: auto;
     }
-    .card-stats {
+  
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
       border: none;
-      border-radius: 1rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      text-align: center;
     }
-    .rounded-chart {
-      border-radius: 1rem;
-    }
-    .scroll-card {
-      max-height: 300px;
-      overflow-y: auto;
-    }
+  
     thead.sticky-top {
       background-color: white;
       z-index: 1;
     }
-    img.rounded-circle {
-      border: 2px solid #dee2e6;
+  
+    /* Tambahan untuk tabel */
+    .table-responsive {
+      overflow-x: auto;
+      max-width: 100%;
+    }
+  
+    table.table-sm td,
+    table.table-sm th {
+      white-space: nowrap;
     }
   </style>
+  
 </head>
 <body>
   <!-- Sidebar -->
@@ -85,10 +98,10 @@
       <table class="table table-bordered table-striped">
         <thead class="sticky-top">
           <tr>
-            <th>#</th>
-            <th>Quiz Title</th>
+            <th>No</th>
+            <th>Name</th>
             <th>Date</th>
-            <th>Score</th>
+            <th>Correct Answer</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -96,12 +109,10 @@
           @foreach($histories as $history)
             <tr>
               <td>{{ $loop->iteration }}</td>
-              <td>{{ $history->quiz_title }}</td>
-              <td>{{ $history->created_at }}</td>
+              <td>{{ $history->name }}</td>
+              <td>{{ $history->created_at->format('d-m-Y') }}</td>
               <td>{{ $history->score }}</td>
               <td>
-                <!-- Edit Button -->
-                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal{{ $history->id }}">Edit</button>
 
                 <!-- Delete Button -->
                 <a href="{{ route('admin.quiz.history.delete', $history->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>

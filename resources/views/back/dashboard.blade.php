@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Elegant Dashboard</title>
+  <title>Dashboard Admin - English Club Universitas Jambi</title>
+  <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" />
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
@@ -145,17 +147,20 @@
       </div>
 
       <div class="col-md-4">
+        
         <div class="card p-3 scroll-card mb-3">
-            <h6>History Placement Test</h6>
-
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item d-flex justify-content-between">Lifestyle <span>8.2k</span></li>
-              <li class="list-group-item d-flex justify-content-between">Tutorials <span>8.2k</span></li>
-              <li class="list-group-item d-flex justify-content-between">Technology <span>8.2k</span></li>
-              <li class="list-group-item d-flex justify-content-between">UX Design <span>8.2k</span></li>
-              <li class="list-group-item d-flex justify-content-between">Interaction Tips <span>8.2k</span></li>
-            </ul>
-          </div>
+          <h6>History Placement Test</h6>
+        
+          <ul class="list-group list-group-flush">
+            @foreach ($histories as $history)
+              <li class="list-group-item d-flex justify-content-between">
+                {{ $history->name }}
+                <span>{{ $history->created_at->format('d M Y') }}</span>
+              </li>
+            @endforeach
+          </ul>
+        </div>
+        
           
           <div class="card p-3 scroll-card">
             <h6>Top Categories</h6>

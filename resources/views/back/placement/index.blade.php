@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Placement Test</title>
+
+  <title> Option Placement - English Club Universitas Jambi</title>
+  <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" />
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f5f6fa;
     }
+  
     .sidebar {
       width: 260px;
       background-color: #3D405B;
@@ -18,29 +22,48 @@
       position: fixed;
       padding-top: 1rem;
     }
+  
     .sidebar .nav-link {
       color: white;
       padding: 12px 20px;
     }
+  
     .sidebar .nav-link.active,
     .sidebar .nav-link:hover {
       background-color: #F2CC8F;
     }
+  
     .main-content {
       margin-left: 260px;
       padding: 2rem;
+      max-width: calc(100vw - 260px);
+      overflow-x: auto;
     }
+  
     .card {
       background-color: #ffffff;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.03);
       border: none;
     }
+  
     thead.sticky-top {
       background-color: white;
       z-index: 1;
     }
+  
+    /* Tambahan untuk tabel */
+    .table-responsive {
+      overflow-x: auto;
+      max-width: 100%;
+    }
+  
+    table.table-sm td,
+    table.table-sm th {
+      white-space: nowrap;
+    }
   </style>
+  
 </head>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -58,10 +81,10 @@
 
   <div class="main-content container-fluid">
     <div class="card p-4">
-      <h4 class="mb-3">Daftar Soal Placement Test</h4>
+      <h4 class="mb-3 text-center">Placement Test Question List</h4>
       <div class="mb-3">
         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTambahSoal">
-          + Tambah Soal Baru
+          + Create
         </button>
       </div>
 
@@ -169,28 +192,28 @@
         <table class="table table-bordered table-striped">
           <thead class="sticky-top">
             <tr>
-              <th>No</th>
-              <th>Tag</th>
+              <th class="text-center">No</th>
+              <th class="text-center">Tag</th>
               <th>Soal</th>
-              <th>Pilihan A</th>
-              <th>Pilihan B</th>
-              <th>Pilihan C</th>
-              <th>Pilihan D</th>
-              <th>Jawaban</th>
-              <th>Action</th>
+              <th class="text-center">Pilihan A</th>
+              <th class="text-center">Pilihan B</th>
+              <th class="text-center">Pilihan C</th>
+              <th class="text-center">Pilihan D</th>
+              <th class="text-center">Jawaban</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
             @foreach($soal as $index => $item)
               <tr>
-                <td>{{ $index + 1 }}</td>
-                <td>{{ $item->tags }}</td>
+                <td class="text-center">{{ $index + 1 }}</td>
+                <td class="text-center">{{ $item->tags }}</td>
                 <td>{{ $item->soal }}</td>
-                <td>{{ $item->pilihan1 }}</td>
-                <td>{{ $item->pilihan2 }}</td>
-                <td>{{ $item->pilihan3 }}</td>
-                <td>{{ $item->pilihan4 }}</td>
-                <td><span class="badge bg-success">{{ $item->jawaban }}</span></td>
+                <td class="text-center">{{ $item->pilihan1 }}</td>
+                <td class="text-center">{{ $item->pilihan2 }}</td>
+                <td class="text-center">{{ $item->pilihan3 }}</td>
+                <td class="text-center">{{ $item->pilihan4 }}</td>
+                <td class="text-center"><span class="badge bg-success">{{ $item->jawaban }}</span></td>
                 <td>
                   <div class="d-flex gap-1 justify-content-center">
                     <button 
