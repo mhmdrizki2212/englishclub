@@ -66,6 +66,49 @@
   
 </head>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // SweetAlert Delete (sudah kamu punya)
+  document.addEventListener('DOMContentLoaded', function () {
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+    const deleteForm = document.getElementById('deleteForm');
+
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        const id = this.getAttribute('data-id');
+        Swal.fire({
+          title: 'Yakin ingin menghapus soal ini?',
+          text: "Data tidak bisa dikembalikan!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#d33',
+          cancelButtonColor: '#6c757d',
+          confirmButtonText: 'Ya, Hapus!',
+          cancelButtonText: 'Batal'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            deleteForm.setAttribute('action', `/placement-test/${id}`);
+            deleteForm.submit();
+          }
+        });
+      });
+    });
+
+    // ✅ SweetAlert Sukses setelah redirect
+    @if(session('success'))
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: '{{ session('success') }}',
+        timer: 2000,
+        showConfirmButton: false
+      });
+    @endif
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 
 <body>
   <div class="sidebar d-flex flex-column">
@@ -242,16 +285,24 @@
                       data-pilihan4="{{ $item->pilihan4 }}"
                       data-jawaban="{{ $item->jawaban }}"
                     >Edit</button>
-                    <form action="{{ route('placement.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus soal ini?')">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                    </form>
+                    <!-- Tombol Delete (dengan SweetAlert) -->
+                    <button 
+                    type="button" 
+                    class="btn btn-danger btn-sm btn-delete"
+                    data-id="{{ $item->id }}"
+                  >
+                    Delete
+                  </button>
                   </div>
                 </td>
               </tr>
             @endforeach
+            <form id="deleteForm" method="POST" style="display: none;">
+              @csrf
+              @method('DELETE')
+            </form>
           </tbody>
+          
         </table>
       </div>
     </div>
