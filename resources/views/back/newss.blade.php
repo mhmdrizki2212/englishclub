@@ -70,7 +70,7 @@
       <a class="nav-link active" href="/dashboard">Dashboard</a>
       <a class="nav-link" href="{{ url('/newss') }}">News</a>
       <a class="nav-link" href="#">Option Placement Test Quiz</a>
-      <a class="nav-link" href="#">Quiz History</a>
+      <a class="nav-link" href="{{ route('admin.quiz.history') }}">Quiz History</a>
       <hr class="text-white">
     </nav>
    

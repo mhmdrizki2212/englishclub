@@ -49,24 +49,23 @@
       z-index: 1;
     }
     img.rounded-circle {
-  border: 2px solid #dee2e6;
-}
-
+      border: 2px solid #dee2e6;
+    }
   </style>
 </head>
 <body>
 
   <!-- Sidebar -->
   <div class="sidebar d-flex flex-column">
-    <h4 class="text-center mb-4"style ="padding : 5px;">English Club Universitas Jambi</h4>
+    <h4 class="text-center mb-4" style="padding: 5px;">English Club Universitas Jambi</h4>
     <nav class="nav flex-column">
       <a class="nav-link active" href="/dashboard">Dashboard</a>
       <a class="nav-link" href="{{ url('/newss') }}">News</a>
       <a class="nav-link" href="#">Option Placement Test Quiz</a>
-      <a class="nav-link" href="#">Quiz History</a>
+      <!-- Corrected Quiz History Link -->
+      <a class="nav-link" href="{{ route('admin.quiz.history') }}">Quiz History</a>
       <hr class="text-white">
     </nav>
-   
   </div>
 
   <!-- Main content -->
@@ -78,8 +77,9 @@
                 <span class="me-2">Hi, Muhammad Rizki 👋</span>
           </div>
         
-  </div>
-</div>
+      </div>
+    </div>
+
     <!-- Stats -->
     <div class="row mb-4 justify-content-center">
         <div class="col-md-3">
