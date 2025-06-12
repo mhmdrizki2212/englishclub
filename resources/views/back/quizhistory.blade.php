@@ -82,8 +82,9 @@
   <!-- Main Content -->
   <div class="main-content">
     <div class="card p-3">
-      <h6>Quiz History - Admin</h6>
-      
+      <h4 class="mb-3 text-center">Placement Test History</h4>
+      <div class="mb-3">
+      </div>
       @if(session('success'))
         <div class="alert alert-success">
           {{ session('success') }}
@@ -98,21 +99,21 @@
       <table class="table table-bordered table-striped">
         <thead class="sticky-top">
           <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Correct Answer</th>
-            <th>Actions</th>
+            <th class="text-center">No</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Date</th>
+            <th class="text-center">Correct Answer</th>
+            <th class="text-center">Actions</th>
           </tr>
         </thead>
         <tbody>
           @foreach($histories as $history)
             <tr>
-              <td>{{ $loop->iteration }}</td>
+              <td class="text-center">{{ $loop->iteration }}</td>
               <td>{{ $history->name }}</td>
-              <td>{{ $history->created_at->format('d-m-Y') }}</td>
-              <td>{{ $history->score }}</td>
-              <td>
+              <td class="text-center">{{ $history->created_at->format('d-M-Y') }}</td>
+              <td class="text-center">{{ $history->score }}</td>
+              <td class="text-center">
 
                 <!-- Delete Button -->
                 <a href="{{ route('admin.quiz.history.delete', $history->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
