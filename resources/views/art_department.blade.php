@@ -61,7 +61,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ route('news') }}">News</a>
+                            <a class="nav-link click-scroll" href="{{ route('news.index') }}">News</a>
                         </li>
 
                         <li class="nav-item dropdown">

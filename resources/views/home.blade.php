@@ -36,64 +36,51 @@
     <main>
 
         <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="navbar-brand-image" />
-                    <span class="navbar-brand-text">
-                      English Club
-                      <small>Jambi University</small>
-                    </span>
-                  </a>
+    <div class="container">
+        <a class="navbar-brand" href="{{ route('home') }}">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="navbar-brand-image" />
+            <span class="navbar-brand-text">
+                English Club
+                <small>Jambi University</small>
+            </span>
+        </a>
 
-                <div class="d-lg-none ms-auto me-3">
-                    <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="#offcanvasExample"
-                        role="button" aria-controls="offcanvasExample">Member Login</a>
-                </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#home">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ route('about') }}">About</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ url('/placement') }}">Placement</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ route('news') }}">News</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>
-
-                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                <li><a class="dropdown-item" href="{{ url('/core-comittee') }}">Core Comitee</a></li>
-                                <li><a class="dropdown-item" href="{{ url('/academic-department') }}">Academic Department</a></li>
-                                <li><a class="dropdown-item" href="{{ url('/art-department') }}">Art Department</a></li>
-                                <li><a class="dropdown-item" href="{{ url('/media-information') }}">Media, Information and Communications</a></li>
-                                <li><a class="dropdown-item" href="{{ url('/public-relations') }}">Public Relations</a></li>
-                            </ul>
-                        </li>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-lg-auto">
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{{ route('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{{ route('about') }}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{{ route('placement.landing') }}">Placement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{{ route('news.index') }}">News</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>
+                    <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                        <li><a class="dropdown-item" href="{{ route('department.core') }}">Core Comittee</a></li>
+                        <li><a class="dropdown-item" href="{{ route('department.academic') }}">Academic Department</a></li>
+                        <li><a class="dropdown-item" href="{{ route('department.art') }}">Art Department</a></li>
+                        <li><a class="dropdown-item" href="{{ route('department.media') }}">Media, Information and Communications</a></li>
+                        <li><a class="dropdown-item" href="{{ route('department.pr') }}">Public Relations</a></li>
                     </ul>
-
-                    <div class="d-none d-lg-block ms-lg-3">
+                </li>
+            </ul>
+            <div class="d-none d-lg-block ms-lg-3">
                         <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="https://elearning.ec.librarynew.unja.ac.id"
                             role="button" aria-controls="offcanvasExample">Member Login</a>
                     </div>
-                </div>
-            </div>
-        </nav>
+        </div>
+    </div>
+</nav>
 
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
@@ -185,7 +172,7 @@
                         </h1>
 
                         <div class="custom-btn-group">
-                            <a href="{{ route('news') }}" class="btn custom-btn smoothscroll me-3">Our Story</a>
+                            <a href="{{ route('news.index') }}" class="btn custom-btn smoothscroll me-3">Our Story</a>
 
                         </div>
                     </div>

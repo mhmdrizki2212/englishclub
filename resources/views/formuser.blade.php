@@ -57,7 +57,7 @@
                             <a class="nav-link click-scroll" href="{{ url('/placement') }}">Placement</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ route('news') }}">News</a>
+                            <a class="nav-link click-scroll" href="{{ route('news.index') }}">News</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
@@ -145,7 +145,7 @@
                 @endif
 
                 <!-- Formulir -->
-                <form id="biodataForm" action="{{ route('user.store') }}" method="POST">
+                <form id="biodataForm" action="{{ route('placement.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="email" class="form-label">Email <span class="text-danger">*</span></label>

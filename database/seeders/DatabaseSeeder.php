@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\PlacementTestSeeder; // Pastikan ini ada
+use Database\Seeders\CategorySeeder;      // Tambahkan use statement untuk CategorySeeder
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,7 +22,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        // Panggil seeder soal tes yang baru dibuat
-        $this->call(PlacementTestSeeder::class);
+        // Panggil semua seeder yang Anda butuhkan di dalam array ini
+        $this->call([
+            PlacementTestSeeder::class,
+            CategorySeeder::class, // <-- CUKUP TAMBAHKAN BARIS INI
+        ]);
     }
 }

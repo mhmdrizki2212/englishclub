@@ -74,7 +74,7 @@
                         <li class="nav-item"><a class="nav-link click-scroll" href="{{ url('/') }}#home">Home</a></li>
                         <li class="nav-item"><a class="nav-link click-scroll" href="{{ route('about') }}">About</a></li>
                         <li class="nav-item"><a class="nav-link click-scroll" href="{{ url('/placement') }}">Placement</a></li>
-                        <li class="nav-item"><a class="nav-link click-scroll" href="{{ route('news') }}">News</a></li>
+                        <li class="nav-item"><a class="nav-link click-scroll" href="{{ route('news.index') }}">News</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>

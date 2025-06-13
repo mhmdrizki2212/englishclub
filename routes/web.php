@@ -1,68 +1,70 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+// Import semua controller yang dibutuhkan
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\Back\DashboardController;
-use App\Http\Controllers\Back\NewssController;
 use App\Http\Controllers\PlacementController;
 use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\Back\QuizHistoryController; 
-use App\Http\Controllers\Back\PlacementTestController;
+use App\Http\Controllers\Back\DashboardController;
+use App\Http\Controllers\Back\NewsController as AdminNewsController;
+use App\Http\Controllers\Back\QuizHistoryController;
+use App\Http\Controllers\Back\PlacementTestController as AdminPlacementTestController;
 
-// Home route
+/*
+|--------------------------------------------------------------------------
+| RUTE HALAMAN PUBLIK (Untuk Pengunjung)
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/', function () {
     return view('home');
+})->name('home');
+
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+
+// Rute untuk Halaman Departemen
+Route::prefix('department')->name('department.')->group(function () {
+    Route::get('/core-comittee', [DepartmentController::class, 'showCoreComittee'])->name('core');
+    Route::get('/academic', [DepartmentController::class, 'showAcademicDepartment'])->name('academic');
+    Route::get('/art-department', [DepartmentController::class, 'showArtDepartment'])->name('art');
+    Route::get('/media-information', [DepartmentController::class, 'showMediaInformation'])->name('media');
+    Route::get('/public-relations', [DepartmentController::class, 'showPublicRelations'])->name('pr');
 });
 
-// Static Pages Routes
-Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/news', [NewsController::class, 'index'])->name('news');
-Route::get('/core-comittee', [DepartmentController::class, 'showCoreComittee']);
-Route::get('/academic-department', [DepartmentController::class, 'showAcademicDepartment']);
-Route::get('/art-department', [DepartmentController::class, 'showArtDepartment']);
-Route::get('/media-information', [DepartmentController::class, 'showMediaInformation']);
-Route::get('/public-relations', [DepartmentController::class, 'showPublicRelations']);
-
-// Dashboard route
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('newss', [NewssController::class, 'index'])->name('newss');
-Route::get('/placement-test', [PlacementTestController::class, 'index'])->name('placement.index');
-Route::post('/placement-test', [PlacementTestController::class, 'store'])->name('placement.store');
-Route::get('/placement-test/{id}', [PlacementTestController::class, 'show'])->name('placement.show');
-Route::get('/placement-test/{id}/edit', [PlacementTestController::class, 'edit'])->name('placement.edit');
-Route::put('/placement-test/{id}', [PlacementTestController::class, 'update'])->name('placement.update');
-Route::delete('/placement-test/{id}', [PlacementTestController::class, 'destroy'])->name('placement.destroy');
+// Rute untuk Placement Test (Publik)
+Route::prefix('placement')->name('placement.')->group(function () {
+    Route::get('/', [PlacementController::class, 'showLandingPage'])->name('landing');
+    Route::get('/biodata', [PlacementController::class, 'index'])->name('biodata');
+    Route::post('/user/store', [PlacementController::class, 'store'])->name('store');
+    Route::get('/quiz/{testTaker}', [PlacementController::class, 'startQuiz'])->name('quiz');
+    Route::post('/submit/{testTaker}', [PlacementController::class, 'submitQuiz'])->name('submit');
+    Route::get('/result/{testTaker}', [PlacementController::class, 'showResult'])->name('result');
+    Route::get('/certificate/{testTaker}/download', [PlacementController::class, 'downloadCertificate'])->name('certificate.download');
+});
 
 
+/*
+|--------------------------------------------------------------------------
+| RUTE HALAMAN ADMIN
+|--------------------------------------------------------------------------
+*/
 
+// PERHATIAN: Grup ini sengaja tidak diberi middleware auth sesuai permintaan Anda.
+// Namun, sangat disarankan untuk menambahkan ->middleware('auth') sebelum production.
+Route::prefix('admin')->name('admin.')->group(function () {
 
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// Admin routes for quiz history
-Route::get('/admin/quiz-history', [QuizHistoryController::class, 'index'])->name('admin.quiz.history');
-Route::post('/admin/quiz-history/update/{historyId}', [QuizHistoryController::class, 'update'])->name('admin.quiz.history.update');
-Route::get('/admin/quiz-history/delete/{historyId}', [QuizHistoryController::class, 'destroy'])->name('admin.quiz.history.delete');
+    // Menggunakan Route::resource untuk News & Placement Test agar lebih ringkas
+    Route::resource('news', AdminNewsController::class);
+    Route::resource('placement-test', AdminPlacementTestController::class);
 
-// === Placement Test Routes ===
-
-// Route for showing the landing page before biodata form
-Route::get('/placement', [PlacementController::class, 'showLandingPage'])->name('placement.landing');
-
-// Route for displaying the biodata form
-Route::get('/placement/biodata', [PlacementController::class, 'index'])->name('placement.biodata');
-
-// Route for processing the biodata form submission
-Route::post('/user/store', [PlacementController::class, 'store'])->name('user.store');
-
-// Route for displaying the quiz page (after biodata form submission)
-Route::get('/placement/quiz/{testTaker}', [PlacementController::class, 'startQuiz'])->name('placement.quiz');
-
-// Route for submitting quiz answers
-Route::post('/placement/submit/{testTaker}', [PlacementController::class, 'submitQuiz'])->name('placement.submit');
-
-// Route for displaying the result page
-Route::get('/placement/result/{testTaker}', [PlacementController::class, 'showResult'])->name('placement.result');
-
-// Route for downloading the certificate
-Route::get('/placement/certificate/{testTaker}/download', [PlacementController::class, 'downloadCertificate'])->name('placement.certificate.download');
-// ==========================================
+    // Rute untuk Quiz History
+    Route::get('/quiz-history', [QuizHistoryController::class, 'index'])->name('quiz-history.index');
+    Route::post('/quiz-history/update/{historyId}', [QuizHistoryController::class, 'update'])->name('quiz-history.update');
+    Route::get('/quiz-history/delete/{historyId}', [QuizHistoryController::class, 'destroy'])->name('quiz-history.delete');
+});
