@@ -71,10 +71,10 @@
             <a class="nav-link {{ request()->routeIs('admin.news.*') ? 'active' : '' }}" href="{{ route('admin.news.index') }}">
                 <i class="bi bi-newspaper"></i> News
             </a>
-            <a class="nav-link {{ request()->routeIs('admin.placement.index') ? 'active' : '' }}" href="{{ route('admin.placement.index') }}">
-                <i class="bi bi-card-checklist"></i> Placement Test
-            </a>
-            <a class="nav-link {{ request()->routeIs('admin.quiz.history') ? 'active' : '' }}" href="{{ route('admin.quiz.history') }}">
+            <a class="nav-link {{ request()->routeIs('admin.placement-test.*') ? 'active' : '' }}" href="{{ route('admin.placement-test.index') }}">
+    <i class="bi bi-card-checklist"></i> Placement Test
+</a>
+            <a class="nav-link {{ request()->routeIs('admin.quiz-history.*') ? 'active' : '' }}" href="{{ route('admin.quiz-history.index') }}">
     <i class="bi bi-clock-history"></i> Quiz History
 </a>
             <hr class="text-white-50 mx-3">

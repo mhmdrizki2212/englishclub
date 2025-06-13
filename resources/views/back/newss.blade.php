@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <title>News Admin - English Club Universitas Jambi</title>
         <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" />
-        
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <style>
@@ -61,22 +61,31 @@
           img.rounded-circle {
         border: 2px solid #dee2e6;
       }
-      
+
         </style>
       </head>
 <body>
-    
+
     <!-- Sidebar -->
   <div class="sidebar d-flex flex-column">
     <h4 class="text-center mb-4"style ="padding : 5px;">English Club Universitas Jambi</h4>
     <nav class="nav flex-column">
-      <a class="nav-link active" href="/dashboard">Dashboard</a>
-      <a class="nav-link" href="{{ url('/newss') }}">News</a>
-      <a class="nav-link" href="{{ url('/placement-test') }}" >Option Placement Test Quiz</a>
-      <a class="nav-link" href="{{ route('admin.quiz.history') }}">Quiz History</a>
-      <hr class="text-white">
-    </nav>
-   
+    {{-- Gunakan helper route() untuk semua link --}}
+    <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+        Dashboard
+    </a>
+    <a class="nav-link {{ request()->routeIs('admin.news.*') ? 'active' : '' }}" href="{{ route('admin.news.index') }}">
+        News
+    </a>
+    <a class="nav-link {{ request()->routeIs('admin.placement-test.*') ? 'active' : '' }}" href="{{ route('admin.placement-test.index') }}">
+        Placement Test Quiz Option
+    </a>
+    <a class="nav-link {{ request()->routeIs('admin.quiz-history.*') ? 'active' : '' }}" href="{{ route('admin.quiz-history.index') }}">
+        Quiz History
+    </a>
+    <hr class="text-white">
+</nav>
+
   </div>
 
   <!-- Main Content -->
