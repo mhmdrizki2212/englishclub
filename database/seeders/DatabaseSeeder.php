@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
         // Panggil semua seeder yang Anda butuhkan di dalam array ini
         $this->call([
             PlacementTestSeeder::class,
-            CategorySeeder::class, // <-- CUKUP TAMBAHKAN BARIS INI
+            CategorySeeder::class,
+            AdminSeeder::class, // <-- CUKUP TAMBAHKAN BARIS INI
         ]);
     }
 }

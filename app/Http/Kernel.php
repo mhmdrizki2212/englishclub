@@ -20,6 +20,7 @@ class Kernel extends HttpKernel
 
             // >> TAMBAHKAN BARIS INI <<
             \App\Http\Middleware\LogVisitorMiddleware::class,
+            \App\Http\Middleware\LogAdminMiddleware::class,
         ],
 
         'api' => [

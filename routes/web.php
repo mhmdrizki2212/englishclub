@@ -11,23 +11,23 @@ use App\Http\Controllers\Back\DashboardController;
 use App\Http\Controllers\Back\NewsController as AdminNewsController;
 use App\Http\Controllers\Back\QuizHistoryController;
 use App\Http\Controllers\Back\PlacementTestController as AdminPlacementTestController;
+use App\Http\Controllers\Back\AdminLoginController; // Import AdminLoginController
 use App\Models\News;
 
 /*
-|--------------------------------------------------------------------------
-| RUTE HALAMAN PUBLIK (Untuk Pengunjung)
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------- 
+| RUTE HALAMAN PUBLIK (Untuk Pengunjung) 
+|-------------------------------------------------------------------------- 
 */
 
 // Rute Halaman Home
 Route::get('/', function () {
     // Mengambil berita terbaru dengan pagination
-    $news = News::latest()->paginate(6); 
+    $news = News::latest()->paginate(6);
 
     // Menampilkan halaman home dengan berita
     return view('home', compact('news'));
 })->name('home');
-
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
@@ -53,25 +53,30 @@ Route::prefix('placement')->name('placement.')->group(function () {
     Route::get('/certificate/{testTaker}/download', [PlacementController::class, 'downloadCertificate'])->name('certificate.download');
 });
 
-
 /*
-|--------------------------------------------------------------------------
-| RUTE HALAMAN ADMIN
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------- 
+| RUTE HALAMAN ADMIN 
+|-------------------------------------------------------------------------- 
 */
 
-// PERHATIAN: Grup ini sengaja tidak diberi middleware auth sesuai permintaan Anda.
-// Namun, sangat disarankan untuk menambahkan ->middleware('auth') sebelum production.
+    Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('login');
+
+// Grup admin, menambahkan middleware auth untuk login
 Route::prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Rute login dan logout
+    Route::post('/login', [AdminLoginController::class, 'login'])->name('login.submit');
+    Route::get('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 
-    // Menggunakan Route::resource untuk News & Placement Test agar lebih ringkas
-    Route::resource('news', AdminNewsController::class);
-    Route::resource('placement-test', AdminPlacementTestController::class);
+    // Grup rute admin dengan middleware auth:admin
+    Route::middleware(['web','auth:admin'])->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('news', AdminNewsController::class);
+        Route::resource('placement-test', AdminPlacementTestController::class);
 
-    // Rute untuk Quiz History
-    Route::get('/quiz-history', [QuizHistoryController::class, 'index'])->name('quiz-history.index');
-    Route::post('/quiz-history/update/{historyId}', [QuizHistoryController::class, 'update'])->name('quiz-history.update');
-    Route::get('/quiz-history/delete/{historyId}', [QuizHistoryController::class, 'destroy'])->name('quiz-history.delete');
+        // Rute untuk Quiz History
+        Route::get('/quiz-history', [QuizHistoryController::class, 'index'])->name('quiz-history.index');
+        Route::post('/quiz-history/update/{historyId}', [QuizHistoryController::class, 'update'])->name('quiz-history.update');
+        Route::get('/quiz-history/delete/{historyId}', [QuizHistoryController::class, 'destroy'])->name('quiz-history.delete');
+    });
 });
