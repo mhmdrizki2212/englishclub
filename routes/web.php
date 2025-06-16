@@ -11,6 +11,7 @@ use App\Http\Controllers\Back\DashboardController;
 use App\Http\Controllers\Back\NewsController as AdminNewsController;
 use App\Http\Controllers\Back\QuizHistoryController;
 use App\Http\Controllers\Back\PlacementTestController as AdminPlacementTestController;
+use App\Models\News;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,15 @@ use App\Http\Controllers\Back\PlacementTestController as AdminPlacementTestContr
 |--------------------------------------------------------------------------
 */
 
+// Rute Halaman Home
 Route::get('/', function () {
-    return view('home');
+    // Mengambil berita terbaru dengan pagination
+    $news = News::latest()->paginate(6); 
+
+    // Menampilkan halaman home dengan berita
+    return view('home', compact('news'));
 })->name('home');
+
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 

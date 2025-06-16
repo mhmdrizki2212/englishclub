@@ -57,7 +57,7 @@ class PlacementTestController extends Controller
         $soal = PlacementTest::findOrFail($id);
         $soal->update($request->all());
 
-        return redirect()->route('placement.index')->with('success', 'Soal berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Soal berhasil diperbarui!');
     }
 
     public function destroy($id)

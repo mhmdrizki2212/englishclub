@@ -86,7 +86,7 @@
           cancelButtonText: 'Batal'
         }).then((result) => {
           if (result.isConfirmed) {
-            deleteForm.setAttribute('action', `/placement-test/${id}`);
+            deleteForm.setAttribute('action', `/admin/placement-test/${id}`);
             deleteForm.submit();
           }
         });
@@ -144,7 +144,7 @@
       <div class="modal fade" id="modalTambahSoal" tabindex="-1" aria-labelledby="modalTambahSoalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <form method="POST" action="{{ url('/placement-test') }}">
+            <form method="POST" action="{{ url('admin/placement-test') }}">
               @csrf
               <div class="modal-header">
                 <h5 class="modal-title">Tambah Soal Placement Test</h5>
@@ -298,7 +298,7 @@
                     <button
                     type="button"
                     class="btn btn-danger btn-sm btn-delete"
-                    data-id="{{ $item->id }}"
+                    data-id="{{ $item->id }}" 
                   >
                     Delete
                   </button>
@@ -306,7 +306,7 @@
                 </td>
               </tr>
             @endforeach
-            <form id="deleteForm" method="POST" style="display: none;">
+            <form  id="deleteForm" method="POST" style="display: none;" >
               @csrf
               @method('DELETE')
             </form>
@@ -323,7 +323,7 @@
       var modalEdit = document.getElementById('modalEditSoal');
       modalEdit.addEventListener('show.bs.modal', function (event) {
         var button = event.relatedTarget;
-        modalEdit.querySelector('#formEditSoal').action = '/placement-test/' + button.getAttribute('data-id');
+        modalEdit.querySelector('#formEditSoal').action = '/admin/placement-test/' + button.getAttribute('data-id');
         modalEdit.querySelector('#edit-tags').value = button.getAttribute('data-tags');
         modalEdit.querySelector('#edit-soal').value = button.getAttribute('data-soal');
         modalEdit.querySelector('#edit-pilihan1').value = button.getAttribute('data-pilihan1');

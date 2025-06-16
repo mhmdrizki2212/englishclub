@@ -321,103 +321,60 @@
         <section class="events-section section-bg section-padding" id="section_news">
             <div class="container">
                 <div class="row">
-
                     <div class="col-lg-12 col-12">
                         <h2 class="mb-lg-3">Latest News</h2>
                     </div>
-
-                    <!-- Berita 1 -->
-                    <div class="row custom-block mb-3">
-                        <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
-                            <div
-                                class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
-                                <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">24</h6>
-                                <strong class="text-white">Feb 2025</strong>
+                
+                    @forelse ($news as $item)
+                        <div class="row custom-block mb-3">
+                            <!-- Tanggal -->
+                            <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
+                                <div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
+                                    <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">{{ $item->created_at->format('d') }}</h6>
+                                    <strong class="text-white">{{ $item->created_at->format('M Y') }}</strong>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
-                            <div class="custom-block-image-wrap">
-                                <a href="news-detail.html">
-                                    <img src="images/WhatsApp Image 2025-04-22 at 15.06.27_103bc441.jpg"
-                                        class="custom-block-image img-fluid" alt="">
-
-                                    <i class="custom-block-icon bi-link"></i>
-                                </a>
+                
+                            <!-- Gambar -->
+                            <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
+                                <div class="custom-block-image-wrap">
+                                    <a href="#">
+                                        <img src="{{ $item->image ? asset('storage/' . $item->image) : asset('images/news-default.jpg') }}"
+                                             class="custom-block-image img-fluid"
+                                             alt="{{ $item->title }}">
+                                        <i class="custom-block-icon bi-link"></i>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-lg-6 col-12 order-3 order-lg-0">
-                            <div class="custom-block-info mt-2 mt-lg-0">
-                                <a href="news-detail.html" class="events-title mb-3">Pelatihan Public Speaking</a>
-
-                                <p class="mb-0">English Club Jambi University mengadakan pelatihan public speaking untuk
-                                    meningkatkan kemampuan berbicara para anggotanya dalam bahasa Inggris.</p>
-
-                                <div class="d-flex flex-wrap border-top mt-4 pt-3">
-                                    <div class="mb-4 mb-lg-0">
-                                        <div class="d-flex flex-wrap align-items-center mb-1">
-                                            <span class="custom-block-span">Tanggal:</span>
-                                            <p class="mb-0">24 Februari 2025</p>
-                                        </div>
-
+                
+                            <!-- Info Berita -->
+                            <div class="col-lg-6 col-12 order-3 order-lg-0">
+                                <div class="custom-block-info mt-2 mt-lg-0">
+                                    <a href="#" class="events-title mb-3">{{ $item->title }}</a>
+                                    <p class="mb-0">{{ Str::limit(strip_tags($item->content), 250) }}</p>
+                                    <div class="d-flex flex-wrap border-top mt-4 pt-3">
                                         <div class="d-flex flex-wrap align-items-center">
-                                            <span class="custom-block-span">Lokasi:</span>
-                                            <p class="mb-0">Gedung Rektorat Lt. 2</p>
+                                            <span class="custom-block-span">Posted on:</span>
+                                            <p class="mb-0">{{ $item->created_at->format('d F Y') }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    @empty
+                        <div class="col-12 text-center mt-5">
+                            <h4 class="text-muted">There is no news yet.</h4>
+                            <p>Please come back later.</p>
+                        </div>
+                    @endforelse
+                
+                    <!-- Pagination -->
+                    <div class="col-12 d-flex justify-content-center mt-5">
+                        {{ $news->links() }}
                     </div>
-
-                    <!-- Berita 2 -->
-                    <div class="row custom-block custom-block-bg">
-                        <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
-                            <div
-                                class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
-                                <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">28</h6>
-                                <strong class="text-white">Feb 2025</strong>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
-                            <div class="custom-block-image-wrap">
-                                <a href="news-detail.html">
-                                    <img src="images/WhatsApp Image 2025-04-22 at 15.06.27_f34364a5.jpg"
-                                        class="custom-block-image img-fluid" alt="">
-
-                                    <i class="custom-block-icon bi-link"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-12 order-3 order-lg-0">
-                            <div class="custom-block-info mt-2 mt-lg-0">
-                                <a href="news-detail.html" class="events-title mb-3">Kegiatan Bonding Anggota Baru</a>
-
-                                <p class="mb-0">Sebagai bagian dari penyambutan anggota baru, English Club
-                                    menyelenggarakan kegiatan bonding dengan berbagai games dan diskusi ringan berbahasa
-                                    Inggris.</p>
-
-                                <div class="d-flex flex-wrap border-top mt-4 pt-3">
-                                    <div class="mb-4 mb-lg-0">
-                                        <div class="d-flex flex-wrap align-items-center mb-1">
-                                            <span class="custom-block-span">Tanggal:</span>
-                                            <p class="mb-0">28 Februari 2025</p>
-                                        </div>
-
-                                        <div class="d-flex flex-wrap align-items-center">
-                                            <span class="custom-block-span">Lokasi:</span>
-                                            <p class="mb-0">Taman Kampus UNJA</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+                  
+                
             </div>
         </section>
 
@@ -448,3 +405,5 @@
 </body>
 
 </html>
+
+
