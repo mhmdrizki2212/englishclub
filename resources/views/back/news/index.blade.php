@@ -47,13 +47,13 @@
             </td>
             <td>{{ $item->created_at->format('d M Y') }}</td>
             <td class="text-center">
-                {{-- PERBAIKAN: Tambahkan parameter kedua yaitu ID berita ($item->news_id atau $item->id) --}}
+                {{-- PERBAIKAN: Menggunakan primary key 'news_id' --}}
                 <a href="{{ route('admin.news.edit', $item->news_id) }}" class="btn btn-sm btn-warning">Edit</a>
 
                 <form action="{{ route('admin.news.destroy', $item->news_id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">
                     @csrf
                     @method('DELETE')
-                    {{-- PERBAIKAN: Tombol hapus juga memerlukan ID berita --}}
+                    {{-- PERBAIKAN: Tombol hapus juga menggunakan 'news_id' --}}
                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                 </form>
             </td>

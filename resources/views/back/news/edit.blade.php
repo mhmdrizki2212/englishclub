@@ -1,57 +1,63 @@
 @extends('back.dashboard')
 
-@section('title', 'Edit News')
-
 @section('content')
-<h2 class="mb-4">Edit News</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Edit News</h3>
+                </div>
+                <div class="card-body">
+                    {{-- PERBAIKAN: Tambahkan parameter $news->news_id pada route --}}
+                    <form action="{{ route('admin.news.update', $news->news_id) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
 
-<div class="card shadow-sm">
-    <div class="card-body">
-        <form action="{{ route('admin.news.update', $news->id) }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $news->title) }}" required>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" id="title" class="form-control" value="{{ old('title', $news->title) }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category_id">Category</label>
+                            <select name="category_id" id="category_id" class="form-control" required>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" {{ $news->category_id == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <textarea name="content" id="content" class="form-control" rows="5" required>{{ old('content', $news->content) }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select name="status" id="status" class="form-control" required>
+                                <option value="published" {{ $news->status == 'published' ? 'selected' : '' }}>Published</option>
+                                <option value="draft" {{ $news->status == 'draft' ? 'selected' : '' }}>Draft</option>
+                                <option value="archived" {{ $news->status == 'archived' ? 'selected' : '' }}>Archived</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" id="image" class="form-control">
+                            @if($news->image)
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}" width="150" class="mt-2">
+                            @endif
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Update News</button>
+                        <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">Content</label>
-                <textarea class="form-control" id="content" name="content" rows="10" required>{{ old('content', $news->content) }}</textarea>
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Image (Leave blank to keep current image)</label>
-                <input type="file" class="form-control" id="image" name="image" onchange="previewImage()">
-                @if($news->image)
-                    <img id="image-preview" src="{{ asset('storage/' . $news->image) }}" alt="Current Image" class="img-thumbnail mt-2" width="200">
-                @else
-                    <img id="image-preview" src="#" alt="Image Preview" class="img-thumbnail mt-2" style="display:none;" width="200"/>
-                @endif
-            </div>
-            <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <select class="form-select" id="status" name="status">
-                    <option value="draft" {{ old('status', $news->status) == 'draft' ? 'selected' : '' }}>Draft</option>
-                    <option value="published" {{ old('status', $news->status) == 'published' ? 'selected' : '' }}>Published</option>
-                </select>
-            </div>
-            <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">Cancel</a>
-            <button type="submit" class="btn btn-primary">Update News</button>
-        </form>
+        </div>
     </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-    function previewImage() {
-        const image = document.querySelector('#image');
-        const imgPreview = document.querySelector('#image-preview');
-        imgPreview.style.display = 'block';
-        const oFReader = new FileReader();
-        oFReader.readAsDataURL(image.files[0]);
-        oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
-        }
-    }
-</script>
-@endpush

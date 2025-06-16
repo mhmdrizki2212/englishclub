@@ -10,14 +10,20 @@ class News extends Model
     use HasFactory;
 
     /**
+     * Tentukan primary key tabel.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'news_id'; // <--- TAMBAHKAN BARIS INI
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    // PERBAIKAN: Tambahkan 'content', 'admin_id', dan 'category_id'
     protected $fillable = [
         'title',
-        'content', // Pastikan 'content' juga ada
+        'content',
         'image',
         'status',
         'publish_date',
