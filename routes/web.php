@@ -11,6 +11,7 @@ use App\Http\Controllers\Back\DashboardController;
 use App\Http\Controllers\Back\NewsController as AdminNewsController;
 use App\Http\Controllers\Back\QuizHistoryController;
 use App\Http\Controllers\Back\PlacementTestController as AdminPlacementTestController;
+use App\Http\Controllers\Back\AdminLoginController; // Import AdminLoginController
 
 /*
 |--------------------------------------------------------------------------
@@ -55,16 +56,27 @@ Route::prefix('placement')->name('placement.')->group(function () {
 
 // PERHATIAN: Grup ini sengaja tidak diberi middleware auth sesuai permintaan Anda.
 // Namun, sangat disarankan untuk menambahkan ->middleware('auth') sebelum production.
+
+// Rute Admin Login, Dashboard, dan lainnya
 Route::prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Rute untuk Login Admin
+    Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('/login', [AdminLoginController::class, 'login'])->name('admin.login.submit');
+    Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout'); // Menangani logout
 
-    // Menggunakan Route::resource untuk News & Placement Test agar lebih ringkas
-    Route::resource('news', AdminNewsController::class);
-    Route::resource('placement-test', AdminPlacementTestController::class);
+    // Rute yang hanya bisa diakses setelah login admin
+    Route::middleware(['auth:admin'])->group(function () {
+        // Halaman Dashboard Admin
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Rute untuk Quiz History
-    Route::get('/quiz-history', [QuizHistoryController::class, 'index'])->name('quiz-history.index');
-    Route::post('/quiz-history/update/{historyId}', [QuizHistoryController::class, 'update'])->name('quiz-history.update');
-    Route::get('/quiz-history/delete/{historyId}', [QuizHistoryController::class, 'destroy'])->name('quiz-history.delete');
+        // Menggunakan Route::resource untuk News & Placement Test agar lebih ringkas
+        Route::resource('news', AdminNewsController::class);
+        Route::resource('placement-test', AdminPlacementTestController::class);
+
+        // Rute untuk Quiz History
+        Route::get('/quiz-history', [QuizHistoryController::class, 'index'])->name('quiz-history.index');
+        Route::post('/quiz-history/update/{historyId}', [QuizHistoryController::class, 'update'])->name('quiz-history.update');
+        Route::get('/quiz-history/delete/{historyId}', [QuizHistoryController::class, 'destroy'])->name('quiz-history.delete');
+    });
 });

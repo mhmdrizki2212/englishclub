@@ -27,5 +27,8 @@ class Kernel extends HttpKernel
         ],
     ];
 
-    // ...
+    protected $routeMiddleware = [
+        // ...
+        'log.admin.visitor' => \App\Http\Middleware\LogAdminVisitorMiddleware::class, // Daftarkan middleware baru
+    ];
 }
