@@ -79,7 +79,7 @@
         News
     </a>
     <a class="nav-link {{ request()->routeIs('admin.placement-test.*') ? 'active' : '' }}" href="{{ route('admin.placement-test.index') }}">
-        Placement Test Quiz Option
+        Placement Test Quiz
     </a>
     <a class="nav-link {{ request()->routeIs('admin.quiz-history.*') ? 'active' : '' }}" href="{{ route('admin.quiz-history.index') }}">
         Quiz History
