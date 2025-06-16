@@ -31,7 +31,7 @@ class QuizHistoryController extends Controller
 
         // Check if the record exists
         if (!$history) {
-            return redirect()->route('admin.quiz.history')->with('error', 'Quiz History not found.');
+            return redirect()->route('admin.quiz-history.index')->with('error', 'Quiz History not found.');
         }
 
         // Update the record with new data
@@ -41,7 +41,7 @@ class QuizHistoryController extends Controller
         ]);
 
         // Redirect back with success message
-        return redirect()->route('admin.quiz.history')->with('success', 'Quiz History updated successfully.');
+        return redirect()->route('admin.quiz-history.index')->with('success', 'Quiz History updated successfully.');
     }
 
     // Method to delete a quiz history record
@@ -52,13 +52,13 @@ class QuizHistoryController extends Controller
 
         // Check if the record exists
         if (!$history) {
-            return redirect()->route('admin.quiz.history')->with('error', 'Quiz History not found.');
+            return redirect()->route('admin.quiz-history.index')->with('error', 'Quiz History not found.');
         }
 
         // Delete the record
         $history->delete();
 
         // Redirect back with success message
-        return redirect()->route('admin.quiz.history')->with('success', 'Quiz History deleted successfully.');
+        return redirect()->route('admin.quiz-history.index')->with('success', 'Quiz History deleted successfully.');
     }
 }
