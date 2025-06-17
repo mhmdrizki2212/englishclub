@@ -8,18 +8,27 @@
     <meta name="description" content="Latest news and updates from English Club Jambi University">
     <meta name="author" content="English Club Universitas Jambi">
 
-    <title>News - English Club Universitas Jambi</title>
+    <title>English Club Universitas Jambi</title>
     <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" />
 
+
+    <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
         rel="stylesheet">
 
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/templatemo-tiya-golf-club.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/templatemo-tiya-golf-club.css') }}" rel="stylesheet">
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+
 </head>
 
 <body>
@@ -28,40 +37,44 @@
 
         <nav class="navbar navbar-expand-lg">
     <div class="container">
-        {{-- ... --}}
+        <a class="navbar-brand" href="{{ route('home') }}">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="navbar-brand-image" />
+            <span class="navbar-brand-text">
+                English Club
+                <small>Jambi University</small>
+            </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ url('/') }}#home">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ route('about') }}">About</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ url('/placement') }}">Placement</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="{{ route('news.index') }}">News</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>
-
-                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{{ route('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{{ route('about') }}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{{ route('placement.landing') }}">Placement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{{ route('news.index') }}">News</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>
+                    <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ route('department.core') }}">Core Comittee</a></li>
                         <li><a class="dropdown-item" href="{{ route('department.academic') }}">Academic Department</a></li>
                         <li><a class="dropdown-item" href="{{ route('department.art') }}">Art Department</a></li>
                         <li><a class="dropdown-item" href="{{ route('department.media') }}">Media, Information and Communications</a></li>
                         <li><a class="dropdown-item" href="{{ route('department.pr') }}">Public Relations</a></li>
                     </ul>
-                        </li>
-                    </ul>
-
-                     <div class="d-none d-lg-block ms-lg-3">
+                </li>
+            </ul>
+            <div class="d-none d-lg-block ms-lg-3">
                         <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="https://elearning.ec.librarynew.unja.ac.id"
                             role="button" aria-controls="offcanvasExample">Member Login</a>
                     </div>

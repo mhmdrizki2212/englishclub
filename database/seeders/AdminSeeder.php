@@ -3,21 +3,20 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Admin;
 
 class AdminSeeder extends Seeder
 {
-    public function run()
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
     {
-        // Membuat data admin baru
-        $admin = Admin::create([
-            'email' => 'raka@gmail.com', // Ganti dengan email admin yang diinginkan
-            'password' => Hash::make('password'), // Ganti dengan password yang diinginkan dan di-hash
+        DB::table('admins')->insert([
+            'name' => 'Admin', // Nama yang ingin dimasukkan
+            'email' => 'raka@gmail.com',
+            'password' => Hash::make('password'), // Pastikan password ter-hash dengan benar
         ]);
-
-        // Login otomatis setelah admin dibuat
-        Auth::guard('admin')->login($admin);  // Login otomatis menggunakan guard admin
     }
 }

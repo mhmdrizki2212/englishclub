@@ -17,24 +17,40 @@
       background-color: #f5f6fa;
     }
 
-    .sidebar {
-      width: 260px;
-      background-color: #3D405B;
-      color: white;
-      min-height: 100vh;
-      position: fixed;
-      padding-top: 1rem;
-    }
-
-    .sidebar .nav-link {
-      color: white;
-      padding: 12px 20px;
-    }
-
-    .sidebar .nav-link.active,
-    .sidebar .nav-link:hover {
-      background-color: #F2CC8F;
-    }
+     .sidebar {
+            width: 260px;
+            background-color: #3D405B;
+            color: white;
+            min-height: 100vh;
+            position: fixed;
+            padding-top: 1rem;
+            transition: all 0.3s;
+        }
+        .sidebar-brand-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        .sidebar .nav-link:hover {
+            background-color: rgba(242, 204, 143, 0.1);
+            color: white;
+            border-left: 3px solid #F2CC8F;
+        }
+        .sidebar .nav-link.active {
+            background-color: #F2CC8F;
+            color: #3D405B;
+            font-weight: bold;
+            border-left: 3px solid #E07A5F;
+        }
+        .sidebar .nav-link i {
+            margin-right: 10px;
+        }
 
     .main-content {
       margin-left: 260px;
@@ -115,29 +131,37 @@
 
 <body>
   <div class="sidebar d-flex flex-column">
-    <h4 class="text-center mb-4" style="padding: 5px;">English Club Universitas Jambi</h4>
-    <nav class="nav flex-column">
-    {{-- Gunakan helper route() untuk semua link --}}
-    <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
-        Dashboard
-    </a>
-    <a class="nav-link {{ request()->routeIs('admin.news.*') ? 'active' : '' }}" href="{{ route('admin.news.index') }}">
-        News
-    </a>
-    <a class="nav-link {{ request()->routeIs('admin.placement-test.*') ? 'active' : '' }}" href="{{ route('admin.placement-test.index') }}">
-        Placement Test Quiz
-    </a>
-    <a class="nav-link {{ request()->routeIs('admin.quiz-history.*') ? 'active' : '' }}" href="{{ route('admin.quiz-history.index') }}">
-        Quiz History
-    </a>
-    <hr class="text-white">
-    <form action="{{ route('admin.logout') }}" method="POST">
+    <div class="text-center mb-4 px-2">
+            <h4 class="sidebar-brand-text">English Club UNJA</h4>
+            <small class="text-white-50">Admin Panel</small>
+        </div>
+   <nav class="nav flex-column">
+            {{-- Link akan menjadi 'active' berdasarkan route yang sedang diakses --}}
+            <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+                <i class="bi bi-grid-1x2-fill"></i> Dashboard
+            </a>
+            <a class="nav-link {{ request()->routeIs('admin.news.*') ? 'active' : '' }}" href="{{ route('admin.news.index') }}">
+                <i class="bi bi-newspaper"></i> News
+            </a>
+            <a class="nav-link {{ request()->routeIs('admin.placement-test.*') ? 'active' : '' }}" href="{{ route('admin.placement-test.index') }}">
+    <i class="bi bi-card-checklist"></i> Placement Test
+</a>
+            <a class="nav-link {{ request()->routeIs('admin.quiz-history.*') ? 'active' : '' }}" href="{{ route('admin.quiz-history.index') }}">
+    <i class="bi bi-clock-history"></i> Quiz History
+</a>
+            <hr class="text-white-50 mx-3">
+            {{-- Tambahkan link logout atau lainnya di sini --}}
+             
+        <form action="{{ route('admin.logout') }}" method="POST">
             @csrf
             <button type="submit" class="nav-link bg-transparent border-0 text-white w-100 text-left">
                 <i class="bi bi-box-arrow-right"></i> Logout
             </button>
         </form>
-</nav>
+        </nav>
+         <div class="mt-auto p-3 text-center">
+            <small class="text-white-50">&copy; {{ date('Y') }} English Club</small>
+        </div>
   </div>
 
   <div class="main-content container-fluid">
