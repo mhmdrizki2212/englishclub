@@ -66,10 +66,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     // Rute login dan logout
     Route::post('/login', [AdminLoginController::class, 'login'])->name('login.submit');
-    Route::get('/logout', [AdminLoginController::class, 'logout'])->name('logout');
+    Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 
     // Grup rute admin dengan middleware auth:admin
-    Route::middleware(['web','auth:admin'])->group(function () {
+    Route::middleware([ 'auth:admin'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('news', AdminNewsController::class);
         Route::resource('placement-test', AdminPlacementTestController::class);

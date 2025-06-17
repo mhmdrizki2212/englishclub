@@ -79,6 +79,13 @@
 </a>
             <hr class="text-white-50 mx-3">
             {{-- Tambahkan link logout atau lainnya di sini --}}
+             
+        <form action="{{ route('admin.logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="nav-link bg-transparent border-0 text-white w-100 text-left">
+                <i class="bi bi-box-arrow-right"></i> Logout
+            </button>
+        </form>
         </nav>
         <div class="mt-auto p-3 text-center">
             <small class="text-white-50">&copy; {{ date('Y') }} English Club</small>

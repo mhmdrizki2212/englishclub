@@ -84,6 +84,12 @@
         Quiz History
     </a>
     <hr class="text-white">
+    <form action="{{ route('admin.logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="nav-link bg-transparent border-0 text-white w-100 text-left">
+                <i class="bi bi-box-arrow-right"></i> Logout
+            </button>
+        </form>
 </nav>
 
   </div>

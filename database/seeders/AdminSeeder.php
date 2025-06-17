@@ -13,7 +13,7 @@ class AdminSeeder extends Seeder
     {
         // Membuat data admin baru
         $admin = Admin::create([
-            'email' => '3admin@gmail.com', // Ganti dengan email admin yang diinginkan
+            'email' => 'raka@gmail.com', // Ganti dengan email admin yang diinginkan
             'password' => Hash::make('password'), // Ganti dengan password yang diinginkan dan di-hash
         ]);
 

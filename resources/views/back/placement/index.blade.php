@@ -7,7 +7,10 @@
   <title> Option Placement - English Club Universitas Jambi</title>
   <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" />
 
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -128,6 +131,12 @@
         Quiz History
     </a>
     <hr class="text-white">
+    <form action="{{ route('admin.logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="nav-link bg-transparent border-0 text-white w-100 text-left">
+                <i class="bi bi-box-arrow-right"></i> Logout
+            </button>
+        </form>
 </nav>
   </div>
 
