@@ -31,31 +31,40 @@
         {{-- ... --}}
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-lg-auto">
-                <li class="nav-item">
-                    <a class="nav-link click-scroll" href="{{ route('home') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link click-scroll" href="{{ route('about') }}">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link click-scroll" href="{{ route('placement.landing') }}">Placement</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link click-scroll" href="{{ route('news.index') }}">News</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>
-                    <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                        {{-- Menggunakan nama rute yang sudah didefinisikan --}}
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{{ url('/') }}#home">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{{ route('about') }}">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{{ url('/placement') }}">Placement</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{{ route('news.index') }}">News</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Pioneers Structure</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ route('department.core') }}">Core Comittee</a></li>
                         <li><a class="dropdown-item" href="{{ route('department.academic') }}">Academic Department</a></li>
                         <li><a class="dropdown-item" href="{{ route('department.art') }}">Art Department</a></li>
                         <li><a class="dropdown-item" href="{{ route('department.media') }}">Media, Information and Communications</a></li>
                         <li><a class="dropdown-item" href="{{ route('department.pr') }}">Public Relations</a></li>
                     </ul>
-                </li>
-            </ul>
-            {{-- ... --}}
+                        </li>
+                    </ul>
+
+                     <div class="d-none d-lg-block ms-lg-3">
+                        <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="https://elearning.ec.librarynew.unja.ac.id"
+                            role="button" aria-controls="offcanvasExample">Member Login</a>
+                    </div>
         </div>
     </div>
 </nav>
